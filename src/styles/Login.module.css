@@ -1,0 +1,99 @@
+/* src/styles/login.module.css */
+
+.loginContainer {
+  background-color: var(--background-color-light);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow);
+  max-width: 400px;
+  margin: var(--spacing-lg) auto;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.loginTitle {
+  font-size: var(--font-size-xl);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  color: var(--primary-color);
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup {
+  margin-bottom: var(--spacing-md);
+}
+
+.input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--border-radius-sm);
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.input::placeholder {
+  color: var(--secondary-color);
+}
+
+.formGroupCheckbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  color: var(--secondary-color);
+}
+
+.formGroupCheckbox input {
+  margin-right: var(--spacing-xs);
+}
+
+.loginButton {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-size: var(--font-size-md);
+  transition: var(--transition);
+  margin-bottom: var(--spacing-md);
+}
+
+.loginButton:hover {
+  background-color: var(--success-color);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .loginContainer {
+    padding: var(--spacing-md); /* Reduce padding for mobile */
+    max-width: 80%; /* Use more width on smaller screens */
+  }
+
+  .loginTitle {
+    font-size: var(--font-size-lg); /* Reduce title size for mobile */
+  }
+
+  .input {
+    padding: var(--spacing-xs); /* Reduce padding on inputs */
+    font-size: var(--font-size-md); /* Ensure font is readable */
+  }
+
+  .loginButton {
+    padding: var(--spacing-sm) var(--spacing-md); /* Adjust button padding */
+    font-size: var(--font-size-md); /* Ensure font size is consistent */
+  }
+
+  a {
+    font-size: var(--font-size-sm); /* Smaller font size for links */
+  }
+}

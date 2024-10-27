@@ -1,0 +1,30 @@
+.back-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: 1px solid var(--primary-color);
+  border-radius: 50px;
+  background-color: transparent;
+  color: var(--primary-color);
+  font-size: 18px;
+  cursor: pointer;
+  transition: 250ms;
+}
+
+.back-button:hover {
+  background-color: var(--primary-color);
+  color: black;
+  transition: 250ms;
+}
+
+.back-icon {
+  margin-right: 10px;
+}
+
+.back-button span {
+  font-weight: 500;
+}
+
+.back-button:focus {
+  outline: none;
+}

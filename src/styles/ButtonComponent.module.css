@@ -1,0 +1,33 @@
+
+.buttonComponent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  background-color: var(--primary-color);
+  font-size: 1rem;
+  color: black;
+  transition: 250ms;
+  
+}
+
+.buttonComponent a {
+  color: black;
+}
+
+
+.buttonComponent:hover {
+  background-color: var(--primary-color-lightdark);
+
+}
+
+.buttonIcon {
+  color: black!;
+  margin-right: var(--spacing-sm);
+}
+

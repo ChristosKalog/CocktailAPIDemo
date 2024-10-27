@@ -1,0 +1,85 @@
+.recipeCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--gradient-card);
+  padding: var(--spacing-sm);
+  border: 1px solid var(--background-color);
+  border-radius: var(--border-radius-md);
+  border-top: 1px solid var(--primary-color-dark);
+  transition: 250ms;
+  height: 130px;
+}
+
+.recipeCard:hover {
+  background: var(--gradient-card-hover);
+  border: 1px solid var(--background-color);
+  border-bottom: 1px solid var(--primary-color-lightdark);
+  transition: 250ms;
+}
+
+.headerInfo {
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--spacing-xs);
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-xs);
+}
+
+.headerInfo p {
+  font-size: 0.9rem;
+}
+
+.infoContainer {
+  height: 100%;
+  width: 70%;
+  padding-left: var(--spacing-sm);
+  align-items: flex-start;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.infoContainer h2,
+.infoContainer p {
+  margin: 0;
+  padding: 0;
+}
+
+.infoContainer h2 {
+  color: white;
+  text-align: left;
+  font-size: 1.5rem;
+  font-family: "EB Garamond";
+  margin-bottom: var(--spacing-xs);
+}
+
+.recipeCard:hover h2 {
+  color: var(--primary-color);
+}
+
+.recipeCard:hover .headerInfo {
+  color: var(--primary-color-lightdark);
+}
+.moreInfo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: column;
+}
+
+.moreInfo p {
+  font-size: 0.82rem;  
+}
+
+/* Existing styles for .recipeCard and its child elements remain unchanged */
+
+@media (max-width: 768px) {
+.recipeCard {
+  width: 95%;
+  margin: 0 auto;;
+}
+.moreInfo p {
+  font-size: 0.85rem;
+}
+}

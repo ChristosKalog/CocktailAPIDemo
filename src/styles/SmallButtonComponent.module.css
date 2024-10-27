@@ -1,0 +1,32 @@
+.buttonComponent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin-top: var(--spacing-md);
+  border-radius: var(--spacing-lg);
+  border: 1px solid var(--primary-color); /* Set border color */
+  background-color: transparent; /* No background color */
+  cursor: pointer;
+  transition: border-color 250ms; /* Transition only on border color */
+  font-size: 1rem;
+  color: var(--primary-color); /* Text color matches border color */
+  transition: 150ms;
+}
+
+.buttonComponent a {
+  color: inherit; /* Inherit color from button component */
+  text-decoration: none; /* Optional: Remove underline from links */
+}
+
+.buttonComponent:hover {
+  border-color: var(--primary-color-lightdark); /* Change border color on hover */
+  color: var(--primary-color-lightdark); /* Change text color on hover */
+  transition: 150ms;
+
+}
+
+.buttonIcon {
+  color: inherit; /* Inherit color from button component */
+  margin-right: var(--spacing-sm);
+}

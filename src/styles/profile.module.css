@@ -1,0 +1,346 @@
+@import './variables.css';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 80%;
+  padding: var(--spacing-lg);
+  max-height: 80vh;
+}
+.bigSection {
+  display: flex;
+}
+.section {
+  width: 25vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: var(--spacing-md);
+  flex-direction: column;
+  padding: var(--spacing-lg);
+}
+
+.section h1 {
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  font-size: 1.3rem;
+  border-bottom: 1px solid var(--primary-color-dark)
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  color: var(--primary-color-dark);
+  margin: 0;
+  padding: 0;
+}
+
+.section h3 {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-sm) 0;
+  padding: 0;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-sm);
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.favoriteCocktails {
+  display: flex;
+  justify-content: flex-start;
+  ;
+  align-items: flex-start;
+  ;
+  flex-direction: column;
+}
+
+.recipeLink {
+  margin-bottom: var(--spacing-sm);
+  transition: 250ms
+}
+
+.recipeLink:hover {
+  color: var(--primary-color);
+  transition: 250ms
+}
+
+
+.linkButton {
+  background: none;
+  border: none;
+  color: var(--white);
+  /* Use your theme color */
+  cursor: pointer;
+
+
+
+}
+
+.linkButton:hover {
+  color: var(--primary-color);
+
+}
+
+.confirmationDialog {
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  animation: fadeIn 500ms;
+}
+
+.confirmationDialog p {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  margin-right: var(--spacing-md);
+}
+
+.confirmButton,
+.cancelButton {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
+}
+
+.confirmButton,
+.cancelButton {
+  background-color: transparent;
+  color: var(--text-color);
+  margin-right: var(--spacing-sm);
+}
+
+.confirmButton:hover,
+.cancelButton:hover {
+  background-color: var(--primary-color);
+  color: black;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.deletedMessage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+
+  color: var(--primary-color);
+}
+@media (max-width: 768px) {
+  /* General container adjustments for mobile */
+  .wrapper {
+    flex-direction: column;
+    padding: var(--spacing-md);
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .bigSection {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Adjust sections for full-width stacking on mobile */
+  .section {
+    width: 100%;
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--primary-color-dark);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section:last-child {
+    border: none;
+  }
+
+  /* Smaller font sizes and simplified heading styles */
+  .section h1 {
+    font-size: 1.1rem;
+    border: none;
+  }
+
+  .section h2 {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section h3 {
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  /* Adjust image container for smaller screens */
+  .imageContainer {
+    height: 200px;
+    width: 80vw;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Adjust buttons and links for smaller screens */
+  .linkButton {
+    font-size: 0.9rem;
+  }
+
+  /* Dialog box layout adjustments for mobile */
+  .confirmationDialog {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    width: 100%;
+  }
+
+  /* Adjust button size and padding for mobile */
+  .confirmButton,
+  .cancelButton {
+    width: 100%;
+    padding: var(--spacing-xs);
+    font-size: 0.9rem;
+  }
+
+  /* Message layout adjustments for better readability */
+  .deletedMessage {
+    flex-direction: column;
+    padding: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--primary-color);
+  }
+
+  /* Adjust button container for mobile layout */
+  .buttonContainer {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .buttonContainer p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* General layout adjustments for tablets */
+  .wrapper {
+    flex-direction: column;
+    padding: var(--spacing-md);
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+
+
+  /* Adjust section widths for better display on tablets */
+  .section {
+    width: 45%;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--primary-color-dark);
+    padding: var(--spacing-md);
+
+  }
+
+  .section:last-child {
+    border: none;
+  }
+
+  /* Adjust headings and text size for tablets */
+  .section h1 {
+    font-size: 1.2rem;
+  }
+
+  .section h2 {
+    font-size: 1.4rem;
+  }
+
+  .section h3 {
+    font-size: 1rem;
+  }
+
+  /* Slight reduction in image container height */
+  .imageContainer {
+    height: 220px;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Adjust button sizes and padding for tablets */
+  .confirmButton,
+  .cancelButton {
+    width: 30%;
+    padding: var(--spacing-xs);
+    font-size: 0.9rem;
+  }
+
+  /* Better spacing for confirmation dialogs */
+  .confirmationDialog {
+    flex-direction: row;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    width: 100%;
+  }
+
+  /* Adjust message styles for tablets */
+  .deletedMessage {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    font-size: 1rem;
+    color: var(--primary-color);
+  }
+
+  /* Button container layout for tablets */
+  .buttonContainer {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1rem;
+  }
+
+  .buttonContainer p {
+    margin: 0;
+    padding: 0;
+  }
+}

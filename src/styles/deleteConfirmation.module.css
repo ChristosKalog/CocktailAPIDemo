@@ -1,0 +1,30 @@
+.confirmationDialog {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: var(--primary-color);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 10; /* Ensure it appears above other elements */
+}
+
+.confirmButton,
+.cancelButton {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirmButton {
+  background-color: #f44336; /* Red color for delete confirmation */
+  color: white;
+}
+
+.cancelButton {
+  background-color: #4caf50; /* Green color for cancel */
+  color: white;
+}

@@ -1,0 +1,139 @@
+@import './variables.css';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 0 var(--spacing-md);
+  color: var(--text-color);
+  border-bottom: 1px solid var(--primary-color);
+  width: 95vw;
+  margin: 0 auto;
+  height: 66px;
+}
+
+.iconContainer {
+  display: none;
+}
+
+.navbar__logo a {
+  color: var(--primary-color);
+  /* Gold accent for logo */
+  font-size: var(--font-size-lg);
+  text-decoration: none;
+}
+
+.navbar__links {
+  display: flex;
+  list-style: none;
+}
+
+.navbar__links li {
+  margin-left: var(--spacing-lg);
+}
+
+.navbar__links a {
+  color: var(--text-color);
+  /* Use light text color */
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+
+
+.navbar__auth a {
+  color: var(--text-color);
+  /* Use light text color */
+  text-decoration: none;
+  margin-left: var(--spacing-lg);
+}
+
+.active {
+  font-weight: bold;
+  border-bottom: 2px solid var(--primary-color);
+  /* Gold accent for active link */
+}
+
+.logoutButton {
+  background-color: transparent;
+  /* Change as needed */
+  border: none;
+  color: var(--primary-color);
+  /* Gold accent for logout button */
+  cursor: pointer;
+  font-size: var(--font-size-md);
+  /* Use variable for consistency */
+}
+
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: var(--spacing-md);
+    width: 100vw;
+    /* Full width for mobile */
+  }
+
+  .collapse {
+    height: 6vh;
+    overflow: hidden;
+  }
+
+  .navbar__logo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .icon {
+    margin-left: var(--spacing-sm)
+  }
+
+  .navbar__logo a {
+    font-size: var(--font-size-md);
+    /* Adjust logo size for mobile */
+  }
+
+  .iconContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 0.9rem;
+  }
+
+  .navbar__links {
+    flex-direction: column;
+    margin-top: var(--spacing-md);
+    /* Stack links vertically */
+    width: 100%;
+    /* Make links fill the navbar */
+  }
+
+  .navbar__links li {
+    margin-left: 0;
+    margin-bottom: var(--spacing-md);
+    /* Add space between links */
+  }
+
+  .navbar__auth {
+    margin-top: var(--spacing-sm);
+    width: 100%;
+  }
+
+  .navbar__auth a {
+    margin-left: 0;
+    /* Align auth links properly on mobile */
+  }
+
+  .logoutButton {
+    font-size: var(--font-size-sm);
+    /* Adjust logout button size */
+    margin: 0;
+  }
+}

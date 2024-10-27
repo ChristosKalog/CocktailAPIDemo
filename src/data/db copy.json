@@ -1,0 +1,218 @@
+{
+  "savedCocktails": [
+   {
+     "id": "9c74",
+     "date": "",
+     "name": "Mimosa",
+     "description": "A timeless blend of tangy lime and tequila, delivering the ultimate refreshment.",
+     "recipe": "Mix equal parts champagne and orange juice in a flute.",
+     "cocktailStyle": "Brunch",
+     "complexityLevel": "easy",
+     "alcoholValue": "8",
+     "price": "10",
+     "smallPicture": "paloma.png",
+     "ingredients": [
+       {
+         "name": "Champagne",
+         "quantity": "250",
+         "id": 1729584459682
+       },
+       {
+         "name": "Orange Juice",
+         "quantity": "250",
+         "id": 1729584455682
+       }
+     ]
+   },
+   {
+     "id": "2a34",
+     "date": "",
+     "name": "Margarita",
+     "description": "A timeless blend of tangy lime and tequila, delivering the ultimate refreshment.",
+     "recipe": "Shake tequila, lime juice, and triple sec with ice. Strain into a salt-rimmed glass.",
+     "cocktailStyle": "Classic",
+     "complexityLevel": "medium",
+     "alcoholValue": "14",
+     "price": "12",
+     "smallPicture": "margarita.png",
+     "ingredients": [
+       {
+         "name": "Tequila",
+         "quantity": "50",
+         "id": 1728998788163
+       },
+       {
+         "name": "Lime Juice",
+         "quantity": "25",
+         "id": 1728998837158
+       },
+       {
+         "name": "Triple Sec",
+         "quantity": "25",
+         "id": 1728998837159
+       }
+     ]
+   },
+   {
+     "id": "7d65",
+     "date": "",
+     "name": "Old Fashioned",
+     "description": "A bold whiskey cocktail with citrus and bitters, full of classic character.",
+     "recipe": "Muddle sugar and bitters, add bourbon, and serve with ice. Garnish with orange peel.",
+     "cocktailStyle": "Classic",
+     "complexityLevel": "medium",
+     "alcoholValue": "16",
+     "price": "10",
+     "smallPicture": "negroni.png",
+     "ingredients": [
+       {
+         "name": "Bourbon",
+         "quantity": "50",
+         "id": 1728998788164
+       },
+       {
+         "name": "Sugar",
+         "quantity": "1",
+         "id": 1728998837160
+       },
+       {
+         "name": "Angostura Bitters",
+         "quantity": "2 dashes",
+         "id": 1728998837161
+       },
+       {
+         "name": "Orange Peel",
+         "quantity": "1",
+         "id": 1728998837162
+       }
+     ]
+   },
+   {
+     "id": "4f12",
+     "date": "",
+     "name": "Pina Colada",
+     "description": "A tropical escape in a glass with creamy coconut and sweet pineapple.",
+     "recipe": "Blend rum, coconut cream, and pineapple juice with ice. Serve in a chilled glass.",
+     "cocktailStyle": "Tropical",
+     "complexityLevel": "easy",
+     "alcoholValue": "12",
+     "price": "10",
+     "smallPicture": "pinacolada.png",
+     "ingredients": [
+       {
+         "name": "Rum",
+         "quantity": "50",
+         "id": 1728998788165
+       },
+       {
+         "name": "Coconut Cream",
+         "quantity": "30",
+         "id": 1728998837163
+       },
+       {
+         "name": "Pineapple Juice",
+         "quantity": "100",
+         "id": 1728998837164
+       }
+     ]
+   },
+   {
+     "id": "8b49",
+     "date": "",
+     "name": "Cosmopolitan",
+     "description": "",
+     "recipe": "Shake all ingredients with ice and strain into a martini glass.",
+     "cocktailStyle": "Classic",
+     "complexityLevel": "medium",
+     "alcoholValue": "50",
+     "price": "12",
+     "smallPicture": "cosmo.png",
+     "ingredients": [
+       {
+         "name": "Vodka",
+         "quantity": "40",
+         "id": 1729598503444
+       },
+       {
+         "name": "Triple Sec",
+         "quantity": "15",
+         "id": 1729598503444
+       },
+       {
+         "name": "Cranberry Juice",
+         "quantity": "30",
+         "id": 1729598503444
+       },
+       {
+         "name": "Lime Juice",
+         "quantity": "10",
+         "id": 1729598503444
+       }
+     ]
+   }
+ ],
+ 
+ 
+   "savedMenus": [
+     {
+       "id": "0ee5",
+       "title": "Standard",
+       "cocktailIds": ["9c74", "2a34", "7d65", "8b49", "4f12"],
+       "dateCreated": "2024-10-22T08:03:06.052Z"
+     },
+     {
+       "id": "39b2",
+       "title": "New",
+       "cocktailIds": ["9c74", "2a34", "7d65"],
+       "dateCreated": "2024-10-22T08:52:14.215Z"
+     }
+   ],
+   "users": [
+     {
+       "id": "0",
+       "username": "stelios",
+       "email": "stelios@example.com",
+       "password": "test",
+       "fullName": "Stelios Alexandrakis",
+       "role": "the boss",
+       "bar": "The Cocktail Lounge",
+       "favorites": [20, 4, 17, 18],
+       "menusCreated": 5,
+       "lastLogin": "2020-10-10",
+       "barAddress": "Kordelio City",
+       "fbPage": "https://en.wikipedia.org/wiki/Bar_(establishment)",
+       "instaPage": "https://en.wikipedia.org/wiki/Bar_(establishment)"
+     },
+     {
+       "id": "1",
+       "username": "alkis",
+       "email": "alkis@example.com",
+       "password": "test",
+       "fullName": "Alkis Tzaras",
+       "role": "the bartender",
+       "bar": "Shaken Not Stirred",
+       "favorites": [2, 10, 12],
+       "menusCreated": 3,
+       "lastLogin": "2020-10-10",
+       "barAddress": "Kordelio City",
+       "fbPage": "https://en.wikipedia.org/wiki/Bar_(establishment)",
+       "instaPage": "https://en.wikipedia.org/wiki/Bar_(establishment)"
+     },
+     {
+       "id": "2",
+       "username": "christos",
+       "email": "christos@example.com",
+       "password": "test",
+       "fullName": "Christos Kalogridakis",
+       "role": "the employ",
+       "bar": "The Boozy Bar",
+       "favorites": [1, 5, 7],
+       "menusCreated": 10,
+       "lastLogin": "2020-10-10",
+       "barAddress": "Kordelio City",
+       "fbPage": "https://en.wikipedia.org/wiki/Bar_(establishment)",
+       "instaPage": "https://en.wikipedia.org/wiki/Bar_(establishment)"
+     }
+   ]
+ }
+ 

@@ -1,0 +1,54 @@
+.CocktailComponent {
+  width: 100%;
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm);
+}
+
+.CocktailComponent:last-child{
+  margin-bottom: 0;
+}
+
+.cocktailInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid var(--primary-color-dark);
+  padding-bottom: var(--spacing-xs);
+}
+
+.cocktailInfo h1 {
+  text-align: left;
+  font-size: 1.6rem;
+  font-family: "EB Garamond";
+
+}
+
+.cocktailInfo h1,
+.cocktailInfo p {
+  margin: 0 !important;
+  padding: 0 !important;
+
+}
+
+.cocktailDescription {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: var(--spacing-xs);
+
+}
+
+.cocktailDescription p {
+  font-size: 16px;
+  color: white;
+
+}
+
+@media (max-width: 768px) {
+  .cocktailDescription p {
+    font-size: 14px;
+    font-style: italic;
+  }
+}

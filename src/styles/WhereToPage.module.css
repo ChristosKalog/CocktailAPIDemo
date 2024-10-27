@@ -1,0 +1,32 @@
+@import './variables.css';
+
+p {
+    margin: 0;
+    padding: 0
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    height: 20vh;
+}
+
+.container a {
+    color: black;
+}
+
+.module {
+    border: 1px solid var(--primary-color);
+    text-align: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--spacing-sm);
+}
+
+.buttonContainer {
+    display: flex;
+    width: 280px;
+    justify-content: space-between;
+}

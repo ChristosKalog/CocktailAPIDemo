@@ -1,0 +1,163 @@
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menuTitle {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-top: var(--spacing-lg);
+  gap: var(--spacing-sm);
+}
+
+.menuTitle h1 {
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  font-family: "EB Garamond";
+}
+
+.menuTitle h3 {
+  font-size: 1.5em;
+  font-family: "EB Garamond";
+  color: white;
+  line-height: 1.25; 
+}
+
+
+.viewMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: var(--spacing-lg) var(--spacing-md);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+  margin: var(--spacing-lg) auto;
+  transition: var(--transition);
+  user-select: none;
+  max-width: 700px;
+  border-radius: var(--spacing-md);
+}
+
+
+
+.downloadButton {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+
+.downloadButton:hover {
+  transition: var(--transition);
+  transform: translateY(5px);
+}
+
+.downloadButton svg {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 60%;
+  gap: 5px;
+}
+
+.buttonContainer p {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    display: flex;
+    align-items: center;
+
+    max-width: 100%;
+    margin-top: var(--spacing-lg);
+    min-height: 100vh;
+  }
+
+  .viewMenu {
+    padding: var(--spacing-md);
+    margin: 0 auto;
+    border-radius: var(--spacing-sm);
+    width: 90%;
+  }
+
+  .viewMenu h1 {
+    font-size: 1.5rem;
+    margin: var(--spacing-sm) 0;
+  }
+
+  .viewMenu ul {
+    width: 100%;
+    padding: 0;
+  }
+
+  .viewMenu li {
+    font-size: 1rem;
+    margin-top: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+  }
+
+  .buttonContainer {
+    width: 100%;
+    flex-direction: row;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-lg) 0;
+  }
+
+  .downloadButton {
+    padding: var(--spacing-sm);
+  }
+
+  .downloadButton svg {
+    font-size: 1rem;
+  }
+
+  .menuTitle {
+    margin: var(--spacing-md) 0;
+    padding: 0;
+    flex-direction: row;
+    gap: var(--spacing-sm);
+    align-items: center;
+    width: 80%;
+  }
+
+  .menuTitle h1 {
+    letter-spacing: 1px;
+    font-size: 1.6rem;
+  }
+
+  .menuTitle h2 {
+    font-size: 1rem;
+  }
+
+  .menuTitle h1,
+  .menuTitle h3 {
+    margin: 0;
+    padding: 0;
+    width: auto;
+  }
+}

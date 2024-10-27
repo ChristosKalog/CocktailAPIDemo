@@ -1,0 +1,60 @@
+:root {
+  /* Color Palette */
+  --primary-color: #00b4d8; /* Vibrant blue */
+  --primary-color-lightdark: #0096c7; /* Lighter blue */
+  --primary-color-dark: #023e8a; /* Dark blue */
+  --secondary-color: #6c757d; /* Keeping the grey */
+  --background-color: #0a1929; /* Dark navy background */
+  --background-color-card: rgb(25, 35, 50);
+  --gradient-card: linear-gradient(135deg, rgba(25, 35, 50, 1) 0%, rgba(35, 45, 65, 1) 100%);
+  --gradient-card-hover: linear-gradient(45deg, rgba(25, 35, 50, 1) 0%, rgba(35, 45, 65, 1) 100%);
+  --background-color-light: #1e3a5f;
+  --text-color: #ffffff;
+  --success-color: #2dd4bf; /* Teal success */
+  --warning-color: #fbbf24; /* Amber warning */
+  --error-color: #ef4444; /* Red error */
+  --edit-color: rgb(56, 189, 248);
+  --edit-color-dark: rgb(2, 132, 199);
+
+  /* Spacing */
+  --spacing-xs: 4px;  /* Extra small spacing */
+  --spacing-sm: 8px;  /* Small spacing */
+  --spacing-md: 16px; /* Medium spacing */
+  --spacing-lg: 24px; /* Large spacing */
+  --spacing-xl: 32px; /* Extra large spacing */
+  --spacing-xxl: 40px; /* Extra extra large spacing */
+
+  /* Border Radius */
+  --border-radius-sm: 4px; /* Small border radius */
+  --border-radius-md: 8px; /* Medium border radius */
+  --border-radius-lg: 16px; /* Large border radius */
+  --border-radius-full: 50%; /* Full border radius for circles */
+
+  /* Shadows */
+  --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1); /* Small shadow */
+  --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2); /* Medium shadow */
+  --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3); /* Large shadow */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* General shadow */
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(45deg, #ffc107, #6610f2); /* Primary gradient */
+  --gradient-secondary: linear-gradient(45deg, #6c757d, #adb5bd); /* Secondary gradient */
+
+  /* Typography */
+  --font-family-base: 'Helvetica Neue', Arial, sans-serif; /* Base font family */
+  --font-family-heading: 'Georgia', serif; /* Heading font family */
+  --font-size-xs: 12px; /* Extra small font size */
+  --font-size-sm: 14px; /* Small font size */
+  --font-size-md: 16px; /* Medium font size */
+  --font-size-lg: 20px; /* Large font size */
+  --font-size-xl: 24px; /* Extra large font size */
+  --font-size-xxl: 30px; /* Extra extra large font size */
+  
+  /* Line Height */
+  --line-height-normal: 1.5; /* Normal line height */
+  --line-height-tight: 1.25; /* Tight line height */
+  --line-height-loose: 1.75; /* Loose line height */
+
+  /* Transition */
+  --transition: all 0.3s ease; /* General transition effect */
+}

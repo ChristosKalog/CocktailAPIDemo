@@ -1,0 +1,88 @@
+/* src/styles/register.module.css */
+
+.registerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh; /* Full viewport height */
+  background-color: var(--background-color); /* Background color */
+  color: var(--text-color); /* Text color */
+  padding: var(--spacing-lg); /* Padding */
+}
+
+.registerForm {
+  background-color: rgba(30, 30, 30, 0.8); /* Slightly transparent dark background */
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 400px; /* Max width for the form */
+}
+
+h2 {
+  margin-bottom: var(--spacing-lg); /* Space below the heading */
+  text-align: center; /* Centered heading */
+  color: #ffd700; /* Gold color for the heading */
+}
+
+.inputField {
+  width: 100%; /* Full width */
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-md); /* Space between inputs */
+  border: 1px solid var(--secondary-color); /* Border color */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+  background-color: rgba(255, 255, 255, 0.1); /* Light background for input */
+  color: white; /* Text color inside input */
+  transition: border-color var(--transition); /* Transition for border color */
+}
+
+.inputField:focus {
+  border-color: #ffd700; /* Gold border on focus */
+  outline: none; /* Remove default outline */
+}
+
+.submitButton {
+  width: 100%; /* Full width */
+  padding: var(--spacing-sm);
+  background-color: var(--primary-color); /* Primary color for button */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  border-radius: var(--border-radius-md); /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  font-size: var(--font-size-md); /* Font size */
+  transition: background-color var(--transition); /* Transition for background color */
+}
+
+.submitButton:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+
+@media (max-width: 768px) {
+  .registerContainer {
+    padding: var(--spacing-md); /* Reduce padding for mobile */
+  }
+
+  .registerForm {
+    padding: var(--spacing-md); /* Reduce padding for mobile form */
+    max-width: 90%; /* Use more width on smaller screens */
+    margin-top: var(--spacing-md);
+  }
+
+  h2 {
+    font-size: var(--font-size-lg); /* Reduce heading size for mobile */
+
+  }
+
+  .inputField {
+    padding: var(--spacing-xs); /* Reduce padding for inputs */
+    font-size: var(--font-size-md); /* Ensure font size is readable */
+  }
+
+  .submitButton {
+    padding: var(--spacing-sm); /* Adjust button padding */
+    font-size: var(--font-size-md); /* Ensure font size is consistent */
+  }
+}

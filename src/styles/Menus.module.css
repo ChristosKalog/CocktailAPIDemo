@@ -1,0 +1,111 @@
+@import './variables.css';
+
+.menusContainer {
+  color: var(--text-color);
+  padding: var(--spacing-lg);
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+
+.menusContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.menusTitle {
+  font-size: var(--font-size-xxl);
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+}
+
+.menuCard {
+  background: var(--gradient-card);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-md);
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  transition: var(--transition);
+}
+
+.menuDate {
+  font-size: 0.9rem;
+}
+
+.menuCard:hover {
+  box-shadow: var(--box-shadow-lg);
+  background: var(--gradient-card-hover);
+  transition: var(--transition);
+}
+
+.menuCard p {
+  font-family: 'EB Garamond';
+  font-size: 1.3rem;
+
+}
+
+.menuCard:hover p {
+  color: var(--primary-color)
+}
+
+.menuCard:hover .menuDate {
+  color: white
+}
+
+
+.menuHeader {
+  font-family: 'EB Garamond', var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-color-lightdark);
+}
+
+.menuInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+}
+
+.menuInfo p {
+  margin: 0;
+  font-size: var(--font-size-md);
+
+}
+
+.menuDate {
+  color: var(--secondary-color);
+}
+
+.menuActions {
+  margin-top: var(--spacing-sm);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menuActions button {
+  background-color: var(--primary-color);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  color: var(--background-color);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: var(--font-size-md);
+}
+
+.menuActions button:hover {
+  background-color: var(--primary-color-dark);
+  box-shadow: var(--box-shadow-lg);
+}
+
+.emptyMessage {
+  font-size: var(--font-size-lg);
+  color: var(--secondary-color);
+  margin-top: var(--spacing-md);
+}
