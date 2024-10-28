@@ -1,42 +1,52 @@
-import axios from 'axios';
+const MENU_STORAGE_KEY = 'savedMenus';
 
-const API_URL = "http://192.168.77.124:5001/savedMenus";
+const loadMenus = () => {
+  const data = localStorage.getItem(MENU_STORAGE_KEY);
+  return data ? JSON.parse(data) : [];
+};
 
-const createMenu = async (createMenu) => {
+const saveMenusToLocalStorage = (menus) => {
+  localStorage.setItem(MENU_STORAGE_KEY, JSON.stringify(menus));
+};
+
+const createMenu = async (menu) => {
   try {
-    const response = await axios.post(API_URL, createMenu);
-    console.log("Recipe saved successfully!", response.data);
-    return response.data;
+    const savedMenus = loadMenus();
+    const newMenu = { ...menu, id: Date.now() };
+    savedMenus.push(newMenu);
+    saveMenusToLocalStorage(savedMenus); // Save to localStorage
+    console.log("Menu created successfully!", newMenu);
+    return newMenu;
   } catch (error) {
-    console.error("Error saving recipe:", error);
+    console.error("Error creating menu:", error);
     throw error;
   }
 };
 
 const fetchMenus = async () => {
   try {
-    const response = await fetch(`${API_URL}`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch menus");
-    }
-
-    return await response.json();
+    return loadMenus(); // Load from localStorage
   } catch (error) {
     console.error("Error fetching menus:", error);
-    throw error;
+    return [];
   }
 };
 
+// Delete menu
 const deleteMenu = async (id) => {
   try {
-    const response = await axios.delete(`${API_URL}/${id}`);
-    console.log('Menu deleted successfully!', response.data);
-    return response.data;
+    const savedMenus = loadMenus();
+    const index = savedMenus.findIndex(menu => menu.id === id);
+    if (index === -1) throw new Error('Menu not found');
+
+    const deletedMenu = savedMenus.splice(index, 1); 
+    saveMenusToLocalStorage(savedMenus);
+    console.log("Menu deleted successfully!", deletedMenu);
+    return deletedMenu;
   } catch (error) {
-    console.error('Error deleting menu:', error);
+    console.error("Error deleting menu:", error);
     throw error;
   }
 };
 
-
-export default { createMenu, deleteMenu,  fetchMenus};
+export default { createMenu, deleteMenu, fetchMenus };

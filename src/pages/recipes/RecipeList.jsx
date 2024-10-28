@@ -1,27 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import cocktailsData from "../../data/db.json";
+import mockCocktails from "../../data/mockCocktails.js";
 import ButtonComponent from "../../components/ui/ButtonComponent";
-import RecipeComponent from "../../components/ui/RecipeComponent"; // Import RecipeComponent
+import RecipeComponent from "../../components/ui/RecipeComponent";
 import styles from "../../styles/recipelist.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSortAlphaAsc,
-  faSortAlphaDesc,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSortAlphaAsc, faSortAlphaDesc } from "@fortawesome/free-solid-svg-icons";
+
+// Key for localStorage cocktails
+const COCKTAIL_STORAGE_KEY = 'savedCocktails';
+
+// Load cocktails from localStorage
+const loadLocalStorageCocktails = () => {
+  const data = localStorage.getItem(COCKTAIL_STORAGE_KEY);
+  return data ? JSON.parse(data) : [];
+};
 
 const RecipeList = () => {
   const [filter, setFilter] = useState("");
   const [complexity, setComplexity] = useState("");
-  const [ingredient, setIngredient] = useState(""); // New state for ingredient filter
-  const [searchTerm, setSearchTerm] = useState(""); // New state for search bar
+  const [ingredient, setIngredient] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
+  const [cocktails, setCocktails] = useState([]);
+
+  useEffect(() => {
+    // Load cocktails from mock data and localStorage
+    const localCocktails = loadLocalStorageCocktails();
+    setCocktails([...mockCocktails, ...localCocktails]);
+  }, []);
 
   const clearFilters = () => {
     setFilter("");
     setComplexity("");
     setIngredient("");
-    setSearchTerm(""); // Clear search bar as well
+    setSearchTerm("");
   };
 
   const toggleSortOrder = () => {
@@ -29,7 +42,7 @@ const RecipeList = () => {
   };
 
   // Filter cocktails by style, complexity, ingredient, and search term
-  const filteredCocktails = cocktailsData.savedCocktails
+  const filteredCocktails = cocktails
     .filter((cocktail) => {
       const matchesStyle = filter ? cocktail.cocktailStyle === filter : true;
       const matchesComplexity = complexity
@@ -37,15 +50,14 @@ const RecipeList = () => {
         : true;
       const matchesIngredient = ingredient
         ? cocktail.ingredients.some((ing) =>
-            ing.name.toLowerCase().includes(ingredient.toLowerCase())
+            ing.toLowerCase().includes(ingredient.toLowerCase())
           )
         : true;
 
-      // Check if search term matches the name, ingredients, or other details
       const matchesSearchTerm = searchTerm
         ? cocktail.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           cocktail.ingredients.some((ing) =>
-            ing.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ing.toLowerCase().includes(searchTerm.toLowerCase())
           ) ||
           cocktail.cocktailStyle
             .toLowerCase()
@@ -61,32 +73,26 @@ const RecipeList = () => {
       );
     })
     .sort((a, b) => {
-      if (sortOrder === "asc") {
-        return a.name.localeCompare(b.name);
-      } else {
-        return b.name.localeCompare(a.name);
-      }
+      return sortOrder === "asc"
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name);
     });
 
-  // Get unique styles, complexities, and ingredients for filter options
   const stylesOptions = [
-    ...new Set(
-      cocktailsData.savedCocktails.map((cocktail) => cocktail.cocktailStyle)
-    ),
+    ...new Set(cocktails.map((cocktail) => cocktail.cocktailStyle)),
   ];
   const complexityOptions = [
-    ...new Set(
-      cocktailsData.savedCocktails.map((cocktail) => cocktail.complexityLevel)
-    ),
+    ...new Set(cocktails.map((cocktail) => cocktail.complexityLevel)),
   ];
 
   const ingredientOptions = [
     ...new Set(
-      cocktailsData.savedCocktails.flatMap((cocktail) =>
-        cocktail.ingredients.map((ing) => ing.name)
+      cocktails.flatMap((cocktail) =>
+        cocktail.ingredients.map((ing) => String(ing)) // Ensure each ingredient is a string
       )
     ),
-  ].sort((a, b) => a.localeCompare(b)); // Sort alphabetically
+  ].sort((a, b) => a.localeCompare(b)); 
+  
 
   return (
     <div className={styles.recipeList}>
