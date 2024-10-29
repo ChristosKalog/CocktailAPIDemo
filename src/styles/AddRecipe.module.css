@@ -98,7 +98,7 @@ label {
 }
 
 .removeIngredient:hover{
-  color: white;
+  color: var(--text-color);
   transition: 250ms;
 }
 

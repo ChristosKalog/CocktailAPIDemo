@@ -47,7 +47,7 @@
 }
 
 .infoContainer h2 {
-  color: white;
+  color: var(--text-color);
   text-align: left;
   font-size: 1.5rem;
   font-family: "EB Garamond";

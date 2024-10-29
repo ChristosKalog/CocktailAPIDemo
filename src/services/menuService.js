@@ -6,20 +6,20 @@ const createMenu = (menu) => {
   const menus = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
   menus.push(menu);
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(menus));
-  return menu; // Return the created menu
+  return menu; 
 };
 
-const fetchMenus = () => {
+const fetchMenus = async () => {
   const localMenus = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
-
-  return Promise.resolve([...localMenus, ...mockMenus]); // Combine local storage and mock data
+  const menus = [...localMenus, ...mockMenus]; // Combine local storage and mock data
+  return menus;
 };
 
 const deleteMenu = (id) => {
   const menus = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
   const updatedMenus = menus.filter((menu) => menu.id !== id);
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedMenus));
-  return Promise.resolve(); // You can return the updated menus if needed
+  return Promise.resolve(updatedMenus); // Return the updated menus if needed
 };
 
 const updateMenu = (updatedMenu, id) => {

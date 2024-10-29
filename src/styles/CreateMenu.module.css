@@ -36,7 +36,7 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-md) 0;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--text-color);
   margin-bottom: var(--spacing-sm);
   min-width: 250px;
   font-family: 'EB Garamond';
@@ -133,7 +133,7 @@ h3 {
 }
 
 .cocktailLabel:hover {
-  border: 1px solid white;
+  border: 1px solid var(--text-color);
 }
 
 .cocktailCheckbox {
@@ -150,7 +150,7 @@ h3 {
 .selectedCocktail {
   border: 1px solid var(--primary-color-lightdark) !important;
   background-color: var(--primary-color-lightdark);
-  color: black
+  color: var(--background-color);
 }
 
 .saveButton,
@@ -223,7 +223,7 @@ h3 {
 
   .cocktailLabel {
     font-size: var(--font-size-sm);
-    border: 1px solid white;
+    border: 1px solid var(--text-color);
     width: 90%;
   }
 

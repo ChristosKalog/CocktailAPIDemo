@@ -1,4 +1,3 @@
-
 .buttonComponent {
   display: flex;
   align-items: center;
@@ -11,13 +10,14 @@
   border: 1px solid transparent;
   background-color: var(--primary-color);
   font-size: 1rem;
-  color: black;
+  color: var(--background-color);
   transition: 250ms;
-  
+
 }
 
 .buttonComponent a {
-  color: black;
+  color: var(--background-color);
+
 }
 
 
@@ -27,7 +27,6 @@
 }
 
 .buttonIcon {
-  color: black!;
+  color: var(--background-color);
   margin-right: var(--spacing-sm);
 }
-

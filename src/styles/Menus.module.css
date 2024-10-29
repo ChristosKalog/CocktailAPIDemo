@@ -31,6 +31,8 @@
   padding: var(--spacing-md);
   margin-bottom: var(--spacing-md);
   transition: var(--transition);
+  border-top: 1px solid var(--secondary-color);
+  border-bottom: 1px solid transparent;
 }
 
 .menuDate {
@@ -39,6 +41,8 @@
 
 .menuCard:hover {
   box-shadow: var(--box-shadow-lg);
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid var(--secondary-color);
   background: var(--gradient-card-hover);
   transition: var(--transition);
 }
@@ -54,7 +58,7 @@
 }
 
 .menuCard:hover .menuDate {
-  color: white
+  color: var(--text-color);
 }
 
 

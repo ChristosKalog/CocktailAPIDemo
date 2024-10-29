@@ -42,7 +42,7 @@
 
 .cocktailDescription p {
   font-size: 16px;
-  color: white;
+  color: var(--text-color);
 
 }
 

@@ -20,7 +20,7 @@
 
 .buttonComponent:hover {
   background-color: var(--primary-color);
-  color: black;
+  color: var(--background-color);
   transition: 250ms;
 }
 

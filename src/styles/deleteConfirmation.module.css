@@ -21,10 +21,10 @@
 
 .confirmButton {
   background-color: #f44336; /* Red color for delete confirmation */
-  color: white;
+  color: var(--text-color);
 }
 
 .cancelButton {
   background-color: #4caf50; /* Green color for cancel */
-  color: white;
+  color: var(--text-color);
 }

@@ -33,7 +33,7 @@ h2 {
   border: 1px solid var(--secondary-color); /* Border color */
   border-radius: var(--border-radius-sm); /* Rounded corners */
   background-color: rgba(255, 255, 255, 0.1); /* Light background for input */
-  color: white; /* Text color inside input */
+  color: var(--text-color); /* Text color inside input */
   transition: border-color var(--transition); /* Transition for border color */
 }
 
@@ -46,7 +46,7 @@ h2 {
   width: 100%; /* Full width */
   padding: var(--spacing-sm);
   background-color: var(--primary-color); /* Primary color for button */
-  color: white; /* Button text color */
+  color: var(--text-color);; /* Button text color */
   border: none; /* No border */
   border-radius: var(--border-radius-md); /* Rounded corners */
   cursor: pointer; /* Pointer cursor */

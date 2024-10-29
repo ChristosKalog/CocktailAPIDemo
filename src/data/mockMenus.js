@@ -33,3 +33,5 @@ const mockMenus = [
     "dateCreated": "2024-10-28T14:15:52.373Z"
   }
 ]
+
+export default mockMenus
