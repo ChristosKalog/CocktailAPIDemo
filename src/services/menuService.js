@@ -23,8 +23,7 @@ const deleteMenu = (id) => {
 };
 
 const deleteAllMenus = (id) => {
-  const menus = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
-  const updatedMenus = '';
+  const updatedMenus = "";
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedMenus));
   return Promise.resolve(updatedMenus); // Return the updated menus if needed
 };
@@ -39,6 +38,12 @@ const updateMenu = (updatedMenu, id) => {
   return Promise.resolve(menus[menuIndex]); // Return the updated menu
 };
 
-const menuService = { createMenu, deleteMenu, fetchMenus, updateMenu, deleteAllMenus };
+const menuService = {
+  createMenu,
+  deleteMenu,
+  fetchMenus,
+  updateMenu,
+  deleteAllMenus,
+};
 
 export default menuService;

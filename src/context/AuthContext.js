@@ -1,33 +1,29 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
-// import authService from '../services/authService';
+import React, { createContext, useState, useContext, useEffect } from "react";
 
-// Create AuthContext
 export const AuthContext = createContext();
 
-// Create a custom hook to use the AuthContext
 export const useAuth = () => {
   return useContext(AuthContext);
 };
 
-// Create AuthProvider component
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     if (loggedInUser) {
-      setUser(loggedInUser); // Set user state if found in local storage
+      setUser(loggedInUser);
     }
   }, []);
 
   const login = async (userData) => {
-    setUser(userData); // Set user state upon login
-    localStorage.setItem('loggedInUser', JSON.stringify(userData)); // Save to local storage
+    setUser(userData);
+    localStorage.setItem("loggedInUser", JSON.stringify(userData)); 
   };
 
   const logout = () => {
-    setUser(null); // Clear user state
-    localStorage.removeItem('loggedInUser'); // Clear local storage
+    setUser(null);
+    localStorage.removeItem("loggedInUser");
   };
 
   const value = {

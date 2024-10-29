@@ -6,12 +6,28 @@ import styles from "../../styles/CreateMenu.module.css";
 import ButtonComponent from "../../components/ui/ButtonComponent";
 
 const EditMenu = () => {
+  const [menus, setMenus] = useState("");
+  useEffect(() => {
+    const fetchMenus = async () => {
+      try {
+        const retrievedMenus = await menuService.fetchMenus();
+        setMenus(Array.isArray(retrievedMenus) ? retrievedMenus : []);
+      } catch (error) {
+        console.error("Error fetching menus:", error);
+        setMenus([]); // Set menus to an empty array in case of an error
+      }
+    };
+    fetchMenus();
+  }, []);
+
   const [title, setTitle] = useState("");
   const [selectedCocktails, setSelectedCocktails] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const menu = cocktailsData.savedMenus.find((menu) => menu.id === id);
+  const menu = Array.isArray(menus)
+    ? menus.find((menu) => menu.id === id)
+    : null;
 
   const resetSelection = () => {
     setSelectedCocktails([]);
@@ -47,7 +63,8 @@ const EditMenu = () => {
     };
 
     try {
-      await menuService.updateMenu(newMenu, id); 
+      const savedMenu = await menuService.updateMenu(newMenu, id);
+      return savedMenu;
     } catch (error) {
       console.error("Error saving menu:", error);
       alert("There was an error saving your menu. Please try again.");

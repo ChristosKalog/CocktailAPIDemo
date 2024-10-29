@@ -1,7 +1,7 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from "../../context/AuthContext";
 import styles from "../../styles/Navbar.module.css"; // Import the CSS module
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons"; // Import the download icon
@@ -35,22 +35,42 @@ const Navbar = () => {
       </div>
       <ul className={styles.navbar__links}>
         <li>
-          <NavLink to="/" activeclassname={styles.active}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? `${styles.active} ${styles.navLink}` : styles.navLink
+            }
+          >
             Dashboard
           </NavLink>
         </li>
         <li>
-          <NavLink to="/recipes" activeclassname={styles.active}>
+          <NavLink
+            to="/recipes"
+            className={({ isActive }) =>
+              isActive ? `${styles.active} ${styles.navLink}` : styles.navLink
+            }
+          >
             Recipes
           </NavLink>
         </li>
         <li>
-          <NavLink to="/menus" activeclassname={styles.active}>
+          <NavLink
+            to="/menus"
+            className={({ isActive }) =>
+              isActive ? `${styles.active} ${styles.navLink}` : styles.navLink
+            }
+          >
             Menus
           </NavLink>
         </li>
         <li>
-          <NavLink to="/profile" activeclassname={styles.active}>
+          <NavLink
+            to="/profile"
+            className={({ isActive }) =>
+              isActive ? `${styles.active} ${styles.navLink}` : styles.navLink
+            }
+          >
             Profile
           </NavLink>
         </li>

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styles from "../../styles/RecipeDetail.module.css";
 import recipeService from "../../services/recipeService";
-import menuService from "../../services/menuService";
 
-import DeleteConfirmation from "../../components/ui/DeleteConfirmationComponent";
-import ButtonComponent from "../../components/ui/ButtonComponent";
+// import menuService from "../../services/menuService";
+// import DeleteConfirmation from "../../components/ui/DeleteConfirmationComponent";
+// import ButtonComponent from "../../components/ui/ButtonComponent";
+
 import GoBackButton from "../../components/ui/GoBackButton";
 
 import placeholder1 from "../../assets/images/placeholder1.png";
@@ -16,7 +17,7 @@ import placeholder5 from "../../assets/images/placeholder5.png";
 
 const RecipeDetail = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [recipes, setRecipes] = useState([]);
 
@@ -45,7 +46,7 @@ const RecipeDetail = () => {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
-  const [showConfirmation, setShowConfirmation] = useState(false); // State to manage confirmation dialog
+  // const [showConfirmation, setShowConfirmation] = useState(false); // State to manage confirmation dialog
 
   const mainImage = images[currentImageIndex].src; // Set the main image based on index
 
@@ -90,53 +91,53 @@ const RecipeDetail = () => {
     return <div className={styles.error}>Cocktail not found!</div>;
   }
 
-  const deleteHandle = async () => {
-    setShowConfirmation(true); // Show confirmation dialog
-  };
+  // const deleteHandle = async () => {
+  //   setShowConfirmation(true); // Show confirmation dialog
+  // };
 
-  const editHandle = async () => {
-    navigate(`/edit-recipe/${id}`); // Navigate to the EditRecipe component
-  };
+  // const editHandle = async () => {
+  //   navigate(`/edit-recipe/${id}`); // Navigate to the EditRecipe component
+  // };
 
-  const confirmDelete = async () => {
-    try {
-      // Fetch all menus to find where this cocktail ID is used
-      const menus = await menuService.fetchMenus();
-      const updatedMenus = menus.map((menu) => {
-        if (menu.cocktailIds.includes(id)) {
-          // Filter out the current cocktail ID
-          return {
-            ...menu,
-            cocktailIds: menu.cocktailIds.filter(
-              (cocktailId) => cocktailId !== id
-            ),
-          };
-        }
-        return menu;
-      });
+  // const confirmDelete = async () => {
+  //   try {
+  //     // Fetch all menus to find where this cocktail ID is used
+  //     const menus = await menuService.fetchMenus();
+  //     const updatedMenus = menus.map((menu) => {
+  //       if (menu.cocktailIds.includes(id)) {
+  //         // Filter out the current cocktail ID
+  //         return {
+  //           ...menu,
+  //           cocktailIds: menu.cocktailIds.filter(
+  //             (cocktailId) => cocktailId !== id
+  //           ),
+  //         };
+  //       }
+  //       return menu;
+  //     });
 
-      for (const menu of updatedMenus) {
-        if (
-          menu.cocktailIds.length !==
-          menus.find((m) => m.id === menu.id).cocktailIds.length
-        ) {
-          await menuService.updateMenu(menu, menu.id);
-        }
-      }
+  //     for (const menu of updatedMenus) {
+  //       if (
+  //         menu.cocktailIds.length !==
+  //         menus.find((m) => m.id === menu.id).cocktailIds.length
+  //       ) {
+  //         await menuService.updateMenu(menu, menu.id);
+  //       }
+  //     }
 
-      // Delete the cocktail from the recipe service
-      await recipeService.deleteRecipe(id);
+  //     // Delete the cocktail from the recipe service
+  //     await recipeService.deleteRecipe(id);
 
-      setShowConfirmation(false);
-      navigate("/recipes");
-    } catch (error) {
-      console.error("Error deleting cocktail or updating menus:", error);
-    }
-  };
+  //     setShowConfirmation(false);
+  //     navigate("/recipes");
+  //   } catch (error) {
+  //     console.error("Error deleting cocktail or updating menus:", error);
+  //   }
+  // };
 
-  const cancelDelete = () => {
-    setShowConfirmation(false); // Close confirmation dialog without deletion
-  };
+  // const cancelDelete = () => {
+  //   setShowConfirmation(false); // Close confirmation dialog without deletion
+  // };
 
   return (
     <>
@@ -211,9 +212,7 @@ const RecipeDetail = () => {
                 <h2>ABV: </h2>
                 <p>
                   <span
-                    className={`${styles.abv} ${getABVClass(
-                      cocktail.abv
-                    )}`}
+                    className={`${styles.abv} ${getABVClass(cocktail.abv)}`}
                   >
                     {cocktail.abv}%
                   </span>
@@ -237,7 +236,7 @@ const RecipeDetail = () => {
             <div className={styles.recipeContainer}>
               <p>{cocktail.date}</p>
             </div> */}
-            <div className={styles.bigContainer}>
+            {/* <div className={styles.bigContainer}>
               <div className={styles.buttonsContainer}>
                 <ButtonComponent onClick={editHandle} category="edit">
                   Edit
@@ -254,7 +253,7 @@ const RecipeDetail = () => {
                   />
                 )}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className={styles.goBackContainer}>

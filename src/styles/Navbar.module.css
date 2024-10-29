@@ -38,15 +38,8 @@
   transition: var(--transition);
 }
 
-.navbar__auth a {
-  color: var(--text-color);
-  text-decoration: none;
-  margin-left: var(--spacing-lg);
-}
-
-.active {
-  font-weight: bold;
-  border-bottom: 2px solid var(--primary-color);
+.navbar__links a.active {
+  color: var(--primary-color);
 }
 
 .logoutButton {
@@ -56,8 +49,6 @@
   cursor: pointer;
   font-size: var(--font-size-md);
 }
-
-
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {

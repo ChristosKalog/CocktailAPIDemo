@@ -31,6 +31,8 @@ const ProfilePage = () => {
   const confirmDelete = () => {
     menuService.deleteAllMenus();
     setShowConfirmation(false);
+    setShowDeletedMessage(true);
+    setTimeout(() => setShowDeletedMessage(false), 2000);
   };
 
   const cancelDelete = () => {

@@ -18,7 +18,6 @@ import CreateMenu from "./pages/menu/CreateMenu";
 import EditMenu from "./pages/menu/EditMenu";
 import ViewMenu from "./pages/menu/ViewMenu";
 import Profile from "./pages/profile/Profile";
-import FAQ from "./pages/settings/FAQ";
 
 
 // import ForgotPassword from "./pages/auth/ForgotPassword";
@@ -66,7 +65,6 @@ function App() {
                   <Route path="/viewmenu/:id" element={<PrivateRoute><ViewMenu /></PrivateRoute>} />
                   <Route path="/recipe/add" element={<PrivateRoute><AddRecipe /></PrivateRoute>} />
                   <Route path="/whereto" element={<PrivateRoute><WhereToPage /></PrivateRoute>} />
-                  <Route path="/faq" element={<PrivateRoute><FAQ /></PrivateRoute>} />
                 </Routes>
               </main>
 

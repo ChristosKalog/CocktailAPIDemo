@@ -1,7 +1,5 @@
 import React from 'react';
-import styles from '../../styles/Footer.module.css'; // Import the CSS module
-import {Link } from "react-router-dom";
-
+import styles from '../../styles/Footer.module.css'; 
 
 const Footer = () => {
   return (
@@ -15,7 +13,6 @@ const Footer = () => {
             <button onClick={() => window.open('https://facebook.com')} className={styles.linkButton}>Facebook</button>
             <button onClick={() => window.open('https://twitter.com')} className={styles.linkButton}>Twitter</button>
             <button onClick={() => window.open('https://instagram.com')} className={styles.linkButton}>Instagram</button>
-            <Link to ="/faq">FAQ</Link>
           </div>
         </div>
       </div>
