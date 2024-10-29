@@ -1,10 +1,10 @@
-const API_URL = "http://192.168.1.4:5001/users";
+import mockUsers from '../data/mockUsers'; // Adjust the import path as necessary
 
 // Simulate an API call for logging in
 const login = async (username, password) => {
   try {
-    const response = await fetch(API_URL);
-    const users = await response.json();
+    // Use the imported mockUsers directly
+    const users = mockUsers;
 
     // Find the user based on the username and password
     const user = users.find(user => user.username === username && user.password === password);
@@ -20,30 +20,6 @@ const login = async (username, password) => {
   }
 };
 
-// Simulate an API call for user registration
-const register = async (newUser) => {
-  try {
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newUser),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to register user');
-    }
-
-    const createdUser = await response.json();
-    return createdUser;
-  } catch (error) {
-    console.error("Registration error:", error);
-    throw error; // Handle errors
-  }
-};
-
 export default {
   login,
-  register,
 };

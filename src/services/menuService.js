@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://192.168.1.4:5001/savedMenus";
+const API_URL = "../data/mockUsers.json"; // Update this to the correct path of your db.json file
 
 const createMenu = async (createMenu) => {
   try {
