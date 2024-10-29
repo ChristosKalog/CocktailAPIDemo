@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Import useNavigate
 import styles from "../../styles/Dashboard.module.css";
 import menuService from "../../services/menuService";
 import recipeService from "../../services/recipeService";
@@ -9,6 +9,15 @@ import SmallButtonComponent from "../../components/ui/SmallButtonComponent";
 const Dashboard = () => {
   const [menus, setMenus] = useState([]);
   const [recipes, setRecipes] = useState([]);
+  const { state } = useLocation();
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (state?.status) {
+      setMessage(state.status);
+      setTimeout(() => setMessage(""), 2000);
+    }
+  }, [state]);
 
   useEffect(() => {
     const fetchMenus = async () => {
@@ -34,20 +43,19 @@ const Dashboard = () => {
     fetchCocktails();
   }, []);
 
-  // Get the last 5 items for menus and recipes
   const latestMenus = menus.slice(-5);
   const latestRecipes = recipes.slice(-5);
 
   return (
     <div className={styles.dashboard}>
-      <div className={styles.welcomeMessage}>
-        You have <span className={styles.bigLetter}>{menus.length}</span> menus
-        and <span className={styles.bigLetter}>{recipes.length}</span> recipes!
-      </div>
       <div className={styles.bigContainer}>
-        {/* Menus Section */}
         <div className={styles.menusList}>
-          <h3>Your Latest Menus</h3> 
+          <div className={styles.menuTitle}>
+            <h3>Your Latest Menus</h3>{" "}
+            <Link to="/menus" className={styles.viewAllLink}>
+              <p>View All</p>{" "}
+            </Link>
+          </div>
           {latestMenus.length > 0 ? (
             <div className={styles.menuItemsContainer}>
               {latestMenus.map((menu) => (
@@ -57,11 +65,9 @@ const Dashboard = () => {
                   </Link>
                 </div>
               ))}
-              <SmallButtonComponent>
-                <Link to="/menus" className={styles.viewAllLink}>
-                  View All
-                </Link>
-              </SmallButtonComponent>
+              <ButtonComponent category="add">
+                <Link to="/menu/create">Create Menu</Link>
+              </ButtonComponent>
             </div>
           ) : (
             <>
@@ -76,9 +82,13 @@ const Dashboard = () => {
           )}
         </div>
 
-        {/* Cocktails Section */}
         <div className={styles.menusList}>
-          <h3>Your Latest Cocktails</h3>
+          <div className={styles.menuTitle}>
+            <h3>Your Latest Cocktails</h3>{" "}
+            <Link to="/recipes" className={styles.viewAllLink}>
+              <p>View All</p>
+            </Link>
+          </div>
           {latestRecipes.length > 0 ? (
             <div className={styles.menuItemsContainer}>
               {latestRecipes.map((recipe) => (
@@ -91,11 +101,9 @@ const Dashboard = () => {
                   </Link>
                 </div>
               ))}
-              <SmallButtonComponent>
-                <Link to="/recipes" className={styles.viewAllLink}>
-                  View All
-                </Link>
-              </SmallButtonComponent>
+              <ButtonComponent category="add">
+                <Link to="/recipe/Add">Add Recipe</Link>
+              </ButtonComponent>
             </div>
           ) : (
             <>
@@ -109,19 +117,8 @@ const Dashboard = () => {
             </>
           )}
         </div>
-
-        <div className={styles.menusList}>
-          <h3>Quick Actions</h3>
-          <div className={styles.buttonContainer}>
-            <ButtonComponent category="add">
-              <Link to="/recipe/Add">Add recipe</Link>
-            </ButtonComponent>
-            <ButtonComponent category="add">
-              <Link to="/menu/create">Create menu</Link>
-            </ButtonComponent>
-          </div>
-        </div>
       </div>
+      {message && <div className={styles.messageContainer}>{message}</div>}
     </div>
   );
 };

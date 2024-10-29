@@ -29,7 +29,6 @@ const Login = () => {
 
     try {
       const user = await authService.login(username, password);
-      // console.log("Logged in user:", user); // Log the logged-in user
 
       contextLogin(user); // Update authentication context
 

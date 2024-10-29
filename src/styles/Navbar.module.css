@@ -19,7 +19,6 @@
 
 .navbar__logo a {
   color: var(--primary-color);
-  /* Gold accent for logo */
   font-size: var(--font-size-lg);
   text-decoration: none;
 }
@@ -35,16 +34,12 @@
 
 .navbar__links a {
   color: var(--text-color);
-  /* Use light text color */
   text-decoration: none;
   transition: var(--transition);
 }
 
-
-
 .navbar__auth a {
   color: var(--text-color);
-  /* Use light text color */
   text-decoration: none;
   margin-left: var(--spacing-lg);
 }
@@ -52,18 +47,14 @@
 .active {
   font-weight: bold;
   border-bottom: 2px solid var(--primary-color);
-  /* Gold accent for active link */
 }
 
 .logoutButton {
   background-color: transparent;
-  /* Change as needed */
   border: none;
   color: var(--primary-color);
-  /* Gold accent for logout button */
   cursor: pointer;
   font-size: var(--font-size-md);
-  /* Use variable for consistency */
 }
 
 
@@ -76,7 +67,6 @@
     height: auto;
     padding: var(--spacing-md);
     width: 100vw;
-    /* Full width for mobile */
   }
 
   .collapse {
@@ -97,7 +87,6 @@
 
   .navbar__logo a {
     font-size: var(--font-size-md);
-    /* Adjust logo size for mobile */
   }
 
   .iconContainer {
@@ -110,15 +99,12 @@
   .navbar__links {
     flex-direction: column;
     margin-top: var(--spacing-md);
-    /* Stack links vertically */
     width: 100%;
-    /* Make links fill the navbar */
   }
 
   .navbar__links li {
     margin-left: 0;
     margin-bottom: var(--spacing-md);
-    /* Add space between links */
   }
 
   .navbar__auth {
@@ -128,12 +114,10 @@
 
   .navbar__auth a {
     margin-left: 0;
-    /* Align auth links properly on mobile */
   }
 
   .logoutButton {
     font-size: var(--font-size-sm);
-    /* Adjust logout button size */
     margin: 0;
   }
 }

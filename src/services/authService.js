@@ -1,8 +1,13 @@
-import mockUsers from '../data/mockUsers.js';
+const API_URL = "http://192.168.1.4:5001/users";
 
+// Simulate an API call for logging in
 const login = async (username, password) => {
   try {
-    const user = mockUsers.find(user => user.username === username && user.password === password);
+    const response = await fetch(API_URL);
+    const users = await response.json();
+
+    // Find the user based on the username and password
+    const user = users.find(user => user.username === username && user.password === password);
 
     if (user) {
       return { ...user, isAuthenticated: true }; // Return user data with authentication status
@@ -11,28 +16,30 @@ const login = async (username, password) => {
     }
   } catch (error) {
     console.error("Login error:", error);
-    throw error;
+    throw error; // Propagate the error
   }
 };
 
-// Simulate registration by adding to mockUsers array
+// Simulate an API call for user registration
 const register = async (newUser) => {
   try {
-    const existingUser = mockUsers.find(user => user.username === newUser.username);
-    if (existingUser) {
-      throw new Error('User already exists');
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to register user');
     }
 
-    const newUserId = mockUsers.length ? Math.max(mockUsers.map(user => user.id)) + 1 : 1;
-    const createdUser = { ...newUser, id: newUserId };
-
-    // Add the new user to the mockUsers array
-    mockUsers.push(createdUser);
-
+    const createdUser = await response.json();
     return createdUser;
   } catch (error) {
     console.error("Registration error:", error);
-    throw error;
+    throw error; // Handle errors
   }
 };
 

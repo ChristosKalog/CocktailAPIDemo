@@ -6,13 +6,16 @@ import styles from "../../styles/EditRecipe.module.css"; // Import CSS module
 import rangeStyles from "../../styles/Range.module.css"; // Import CSS module
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesome
 import { faClose, faAdd } from "@fortawesome/free-solid-svg-icons"; // Import icons
+import ButtonComponent from "../../components/ui/ButtonComponent";
 
 const EditRecipe = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const cocktail = cocktailsData.savedCocktails.find(cocktail => cocktail.id === id);
-  
+  const cocktail = cocktailsData.savedCocktails.find(
+    (cocktail) => cocktail.id === id
+  );
+
   const [recipe, setRecipe] = useState({
     name: "",
     description: "",
@@ -22,7 +25,7 @@ const EditRecipe = () => {
     ingredients: [{ name: "", quantity: "", id: Date.now() }], // Temporary for adding new ingredients
     alcoholValue: 0,
     price: "",
-    smallPicture: "" // Added for smallPicture
+    smallPicture: "", // Added for smallPicture
   });
 
   // Load the cocktail data into state for editing
@@ -37,7 +40,7 @@ const EditRecipe = () => {
         ingredients: cocktail.ingredients, // Keep existing IDs
         alcoholValue: cocktail.alcoholValue,
         price: cocktail.price,
-        smallPicture: cocktail.smallPicture // Added for smallPicture
+        smallPicture: cocktail.smallPicture, // Added for smallPicture
       });
     }
   }, [cocktail]);
@@ -193,7 +196,7 @@ const EditRecipe = () => {
           className={styles.addMoreButton}
         >
           <FontAwesomeIcon icon={faAdd} />
-          Add More
+          <p>Add More</p>{" "}
         </button>
         <div className={styles.formGroup}>
           <label htmlFor="price">Recipe Price</label>
@@ -219,9 +222,9 @@ const EditRecipe = () => {
             required
           />
         </div>
-        <button className={styles.submitButton} type="submit">
+        <ButtonComponent type="submit" category="save">
           Save Changes
-        </button>
+        </ButtonComponent>
       </form>
     </div>
   );

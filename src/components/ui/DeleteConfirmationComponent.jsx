@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/deleteConfirmation.module.css"; // Adjust path as necessary
+import styles from "../../styles/DeleteConfirmation.module.css"; // Adjust path as necessary
 
 const DeleteConfirmation = ({ onConfirm, onCancel }) => {
   return (

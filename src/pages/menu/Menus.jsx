@@ -34,7 +34,7 @@ const Menus = () => {
             </Link>
           ))}
           <ButtonComponent category="add">
-            <Link to="/menu/create">Create menu</Link>
+            <Link to="/menu/create">Create Menu</Link>
           </ButtonComponent>
         </div>
       ) : (

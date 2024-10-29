@@ -9,20 +9,19 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const AddRecipe = () => {
   const [recipe, setRecipe] = useState({
-    id: Date.now().toString(), 
-    name: "",                  
+    id: Date.now().toString(),
+    name: "",
     description: "This is description",
-    date: "",                 
-    style: "",       
-    complexityLevel: "",      
-    glassType: "",             
-    recipe: "",                
-    alcoholValue: 0,       
-    price: "",          
-    ingredients: [{ name: "", quantity: "", id: Date.now() }],      
-    smallPicture: "placeholder_small.png", 
+    date: "",
+    cocktailStyle: "",
+    complexityLevel: "",
+    glassType: "",
+    recipe: "",
+    alcoholValue: 0,
+    price: "",
+    ingredients: [{ name: "", quantity: "", id: Date.now() }],
+    smallPicture: "placeholder_small.png",
   });
-  
 
   const navigate = useNavigate(); // Initialize useNavigate
 
@@ -124,11 +123,11 @@ const AddRecipe = () => {
         "0"
       )}/${currentDate.getFullYear()}`;
       await recipeService.saveRecipe({ ...recipe, date: formattedDate });
-      console.log("Recipe created successfully!");
-      setRecipe({      // Reset the form fields
+      setRecipe({
+        // Reset the form fields
         id: Date.now().toString(), // Reset ID for new recipe
         name: "",
-        style: "",
+        cocktailStyle: "",
         complexityLevel: "",
         glassType: "",
         ingredients: [{ name: "", quantity: "", id: Date.now() }],
@@ -164,7 +163,7 @@ const AddRecipe = () => {
         <div className={styles.formGroup}>
           <select
             name="cocktailStyle"
-            value={recipe.style}
+            value={recipe.cocktailStyle}
             onChange={handleChange}
             required
             className={styles.selectInput}
@@ -228,7 +227,6 @@ const AddRecipe = () => {
           <p>{recipe.alcoholValue} %</p>
         </div>
 
-        {/* Ingredients list */}
         {recipe.ingredients.map((ingredient, index) => (
           <div className={styles.formGroup} key={ingredient.id}>
             <div className={styles.ingredients}>
@@ -270,7 +268,6 @@ const AddRecipe = () => {
           </div>
         ))}
 
-        {/* Add more ingredients */}
         <button
           type="button"
           onClick={handleAddIngredient}
@@ -280,7 +277,6 @@ const AddRecipe = () => {
           <p>Add More</p>
         </button>
 
-        {/* Recipe Price */}
         <div className={styles.formGroup}>
           <label htmlFor="price">Recipe Price</label>
           <input
@@ -296,7 +292,6 @@ const AddRecipe = () => {
           <span>EUR</span>
         </div>
 
-        {/* Recipe Instructions */}
         <div className={styles.formGroup}>
           <textarea
             className={styles.recipeArea}
@@ -308,7 +303,6 @@ const AddRecipe = () => {
           />
         </div>
 
-        {/* Submit Button */}
         <ButtonComponent type="submit" category="save">
           Save Recipe
         </ButtonComponent>

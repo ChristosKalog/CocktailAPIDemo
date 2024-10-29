@@ -1,52 +1,49 @@
-const MENU_STORAGE_KEY = 'savedMenus';
+import axios from "axios";
 
-const loadMenus = () => {
-  const data = localStorage.getItem(MENU_STORAGE_KEY);
-  return data ? JSON.parse(data) : [];
-};
+const API_URL = "http://192.168.1.4:5001/savedMenus";
 
-const saveMenusToLocalStorage = (menus) => {
-  localStorage.setItem(MENU_STORAGE_KEY, JSON.stringify(menus));
-};
-
-const createMenu = async (menu) => {
+const createMenu = async (createMenu) => {
   try {
-    const savedMenus = loadMenus();
-    const newMenu = { ...menu, id: Date.now() };
-    savedMenus.push(newMenu);
-    saveMenusToLocalStorage(savedMenus); // Save to localStorage
-    console.log("Menu created successfully!", newMenu);
-    return newMenu;
+    const response = await axios.post(API_URL, createMenu);
+    return response.data;
   } catch (error) {
-    console.error("Error creating menu:", error);
+    console.error("Error saving recipe:", error);
     throw error;
   }
 };
 
 const fetchMenus = async () => {
   try {
-    return loadMenus(); // Load from localStorage
+    const response = await fetch(`${API_URL}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch menus");
+    }
+
+    return await response.json();
   } catch (error) {
     console.error("Error fetching menus:", error);
-    return [];
+    throw error;
   }
 };
 
-// Delete menu
 const deleteMenu = async (id) => {
   try {
-    const savedMenus = loadMenus();
-    const index = savedMenus.findIndex(menu => menu.id === id);
-    if (index === -1) throw new Error('Menu not found');
-
-    const deletedMenu = savedMenus.splice(index, 1); 
-    saveMenusToLocalStorage(savedMenus);
-    console.log("Menu deleted successfully!", deletedMenu);
-    return deletedMenu;
+    const response = await axios.delete(`${API_URL}/${id}`);
+    return response.data;
   } catch (error) {
     console.error("Error deleting menu:", error);
     throw error;
   }
 };
 
-export default { createMenu, deleteMenu, fetchMenus };
+const updateMenu = async (menu, id) => {
+  try {
+    const response = await axios.put(`${API_URL}/${id}`, menu); // Pass menu data here
+    return response.data;
+  } catch (error) {
+    console.error("Error updating menu:", error);
+    throw error;
+  }
+};
+
+export default { createMenu, deleteMenu, fetchMenus, updateMenu };

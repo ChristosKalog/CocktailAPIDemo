@@ -28,7 +28,7 @@ form {
 .formGroup {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Centered items can also be spaced out */
+  justify-content: space-between; 
   margin-bottom: var(--spacing-md);
   width: 100%;
 }
@@ -47,6 +47,10 @@ form {
   outline: none;
   transition: var(--transition);
   text-align: center;
+}
+
+.recipeArea {
+  resize: vertical;
 }
 
 input[type="text"]:focus,
@@ -75,7 +79,7 @@ label {
 .ingredient {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Added spacing between input fields */
+  justify-content: space-between;
   margin-right: var(--spacing-sm);
   padding: var(--spacing-sm);
   color: var(--text-color);
@@ -146,38 +150,34 @@ textarea {
   width: 45px;
 }
 
-/* Styling for the Recipe Price label */
 label[for="price"] {
   font-size: var(--font-size-md);
   color: var(--text-color);
   margin-bottom: var(--spacing-xs);
-  display: block; /* Block display to ensure proper spacing */
+  display: block;
 }
 
-/* Styling for the Recipe Price input */
 .recipePrice {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70px; /* Full width for better usability */
+  width: 60px; 
   padding: var(--spacing-sm);
   font-size: var(--font-size-md);
   color: var(--text-color);
-  background-color: var(--background-color-light); /* Lighter background for contrast */
-  border: 1px solid var(--primary-color); /* Primary color border */
+  background-color: var(--background-color-light); 
+  border: 1px solid var(--primary-color); 
   border-radius: var(--border-radius-md);
-  outline: none; /* Remove default outline */
+  outline: none; 
 }
 
-/* Input focus state */
 .recipePrice:focus {
-  border-color: var(--primary-color-dark); /* Darker border on focus */
+  border-color: var(--primary-color-dark); 
 }
 
-/* Placeholder styling */
 .recipePrice::placeholder {
-  color: var(--secondary-color); /* Grey color for placeholder */
-  opacity: 0.7; /* Slightly transparent for better visibility */
+  color: var(--secondary-color); 
+  opacity: 0.7;
 }
 
 
@@ -198,7 +198,6 @@ label[for="price"] {
   transform: translateY(-2px);
 }
 
-/* Tablet Responsiveness */
 @media (max-width: 1024px) {
   .formContainer {
     padding: var(--spacing-md);
@@ -223,7 +222,7 @@ label[for="price"] {
   }
 }
 
-/* Mobile Responsiveness */
+/* Mobile Mobile Mobile */
 @media (max-width: 768px) {
   .formContainer {
     padding: var(--spacing-md);

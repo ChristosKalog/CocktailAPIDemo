@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import profilePic from "../../assets/images/profile.jpg";
 import barPic from "../../assets/images/bar.png";
-import styles from "../../styles/profile.module.css";
-import { useAuth } from "../../context/AuthContext"; // Adjust the path as necessary
-import mockCocktails from "../../data/mockCocktails"; // Import the mock cocktail data
-import mockUsers from "../../data/mockUsers"; // Import mock user data
-import DeleteConfirmation from "../../components/ui/DeleteConfirmationComponent"; // Adjust the import path
-import ButtonComponent from "../../components/ui/ButtonComponent"; // Import the DeleteButton component
+import styles from "../../styles/Profile.module.css";
+import { useAuth } from "../../context/AuthContext"; 
+import mockCocktails from "../../data/mockCocktails"; 
+import mockUsers from "../../data/mockUsers"; 
+import DeleteConfirmation from "../../components/ui/DeleteConfirmationComponent"; 
+import ButtonComponent from "../../components/ui/ButtonComponent"; 
 
 const ProfilePage = () => {
   const [cocktailsArray, setCocktailsArray] = useState([]);
-  const { user } = useAuth(); // Get the user from the Auth context
+  const { user } = useAuth(); 
   const [showEmpty, setShowEmpty] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showDeletedMessage, setShowDeletedMessage] = useState(false);

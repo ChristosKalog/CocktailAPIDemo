@@ -4,15 +4,19 @@
   background-color: #121212;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 0 var(--spacing-md);
   border-top: 2px solid var(--primary-color-dark);
   width: 95vw;
-  margin: 0 auto;;
+  margin: 0 auto;
 }
 
 .footerContent {
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--spacing-md);
 }
 
 .footer p {
@@ -20,9 +24,7 @@
   font-size: var(--font-size-md);
 }
 
-.socialLinks {
-  margin-top: 10px;
-}
+
 
 
 

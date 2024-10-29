@@ -151,13 +151,14 @@
       "alcoholValue": "0",
       "price": "18",
       "smallPicture": "cosmo.png",
-      "id": "8b49"
+      "id": "8b49",
+      "glassType": "Highball"
     },
     {
       "name": "Heavy Duty",
-      "description": "This is just a text that means nothing",
-      "recipe": "Yes",
-      "cocktailStyle": "Classic",
+      "description": "Really heavy duty stuff.",
+      "recipe": "Step 1\nDo this.\nStep 2\nDo this as well.",
+      "cocktailStyle": "Tiki",
       "complexityLevel": "hard",
       "ingredients": [
         {
@@ -169,32 +170,17 @@
           "name": "Whisky",
           "quantity": "150",
           "id": 1729601019676
+        },
+        {
+          "name": "Wine",
+          "quantity": "",
+          "id": 1730107294092
         }
       ],
       "alcoholValue": "45",
-      "price": "50",
+      "price": "1",
       "smallPicture": "placeholder_small.png",
       "id": "1729600787828"
-    },
-    {
-      "id": "1729605396802",
-      "name": "Lo siento",
-      "description": "This is description",
-      "date": "16:57 22/10/2024",
-      "cocktailStyle": "Highballs",
-      "complexityLevel": "hard",
-      "glassType": "Highball",
-      "recipe": "I like this drink very much.",
-      "alcoholValue": "100",
-      "price": "20",
-      "ingredients": [
-        {
-          "name": "Aperol",
-          "quantity": "1000",
-          "id": 1729605396802
-        }
-      ],
-      "smallPicture": "placeholder_small.png"
     },
     {
       "name": "Tiritompa",
@@ -202,6 +188,7 @@
       "recipe": "Mplou mplou mplou",
       "cocktailStyle": "Tropical",
       "complexityLevel": "hard",
+      "glassType": "Highball",
       "ingredients": [
         {
           "name": "Havana",
@@ -228,20 +215,31 @@
         "9c74",
         "2a34",
         "7d65",
-        "8b49",
-        "4f12"
+        "1730124053775"
       ],
-      "dateCreated": "2024-10-22T08:03:06.052Z"
+      "dateCreated": "2024-10-28T14:01:40.209Z"
     },
     {
-      "id": "39b2",
-      "title": "New",
+      "id": "747b",
+      "title": "Heavy Duty",
+      "cocktailIds": [
+        "4f12",
+        "2a34",
+        "1729630370659",
+        "8b49",
+        "7d65"
+      ],
+      "dateCreated": "2024-10-28T11:23:36.557Z"
+    },
+    {
+      "id": "b6c7",
+      "title": "Test",
       "cocktailIds": [
         "9c74",
         "2a34",
-        "7d65"
+        "1729630370659"
       ],
-      "dateCreated": "2024-10-22T08:52:14.215Z"
+      "dateCreated": "2024-10-28T14:15:52.373Z"
     }
   ],
   "users": [
@@ -290,7 +288,7 @@
       "email": "christos@example.com",
       "password": "test",
       "fullName": "Christos Kalogridakis",
-      "role": "the employ",
+      "role": "the Employ",
       "bar": "The Boozy Bar",
       "favorites": [
         1,

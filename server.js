@@ -1,7 +1,7 @@
-const jsonServer = require('json-server');
-const cors = require('cors');
+const jsonServer = require("json-server");
+const cors = require("cors");
 const server = jsonServer.create();
-const router = jsonServer.router('src/data/db.json'); // Path to your db.json
+const router = jsonServer.router("src/data/db.json"); // Path to your db.json
 const middlewares = jsonServer.defaults();
 
 // Use CORS middleware to enable cross-origin requests
@@ -18,6 +18,5 @@ const PORT = 5001;
 server.listen(PORT, () => {
   console.log(`JSON Server is running on port ${PORT}`);
 });
-
 
 //npx json-server --watch src/data/db.json --port 5001

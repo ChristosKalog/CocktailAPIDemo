@@ -26,17 +26,13 @@ code {
 }
 
 main {
-  min-height: 80vh;
+  min-height: 85vh;
   background-color: #121212;
   touch-action: pan-y;
-  /* Ensure it doesn't exceed viewport width */
-  
 }
 
 @media (max-width: 768px) {
   main {
     min-height: 50vh;
-    
-
   }
 }

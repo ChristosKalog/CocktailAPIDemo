@@ -60,7 +60,6 @@ const AddRecipe = () => {
       )}/${currentDate.getFullYear()}`;
 
       await saveRecipe({ ...recipe, date: formattedDate });
-      console.log("Recipe created successfully!");
 
       setRecipe({
         name: "",

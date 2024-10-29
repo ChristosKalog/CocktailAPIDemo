@@ -1,73 +1,55 @@
-// Key for localStorage
-const STORAGE_KEY = 'savedCocktails';
+import axios from "axios";
 
-// Helper function to load data from localStorage
-const loadRecipes = () => {
-  const data = localStorage.getItem(STORAGE_KEY);
-  return data ? JSON.parse(data) : [];
-};
+const API_URL = "http://192.168.1.4:5001/savedCocktails";
 
-// Helper function to save data to localStorage
-const saveToLocalStorage = (data) => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-};
-
-// Save recipe
 const saveRecipe = async (recipe) => {
   try {
-    const savedCocktails = loadRecipes();
-    const newRecipe = { ...recipe, id: Date.now() };
-    savedCocktails.push(newRecipe);
-    saveToLocalStorage(savedCocktails); // Save to localStorage
-    console.log("Recipe saved successfully!", newRecipe);
-    return newRecipe;
+    const response = await axios.post(API_URL, recipe);
+    return response.data;
   } catch (error) {
     console.error("Error saving recipe:", error);
-    throw error;
+    throw error; 
   }
 };
 
-// Get all recipes
 const getAllRecipes = async () => {
   try {
-    return loadRecipes(); // Load from localStorage
+    const response = await axios.get(API_URL);
+    return response.data;
   } catch (error) {
     console.error("Error retrieving recipes:", error);
     return [];
   }
 };
 
-// Delete recipe
 const deleteRecipe = async (id) => {
   try {
-    const savedCocktails = loadRecipes();
-    const index = savedCocktails.findIndex(recipe => recipe.id === id);
-    if (index === -1) throw new Error('Recipe not found');
-    
-    const deletedRecipe = savedCocktails.splice(index, 1); // Remove the recipe
-    saveToLocalStorage(savedCocktails); // Update localStorage
-    console.log("Recipe deleted successfully!", deletedRecipe);
-    return deletedRecipe;
+    const response = await axios.delete(`${API_URL}/${id}`);
+    return response.data; // You can return any useful information after deletion
   } catch (error) {
     console.error("Error deleting recipe:", error);
-    throw error;
+    throw error; // Handle the error accordingly in your component
   }
 };
 
-// Update recipe
 const updateRecipe = async (id, recipeData) => {
   try {
-    const savedCocktails = loadRecipes();
-    const index = savedCocktails.findIndex(recipe => recipe.id === id);
-    if (index === -1) throw new Error('Recipe not found');
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(recipeData),
+    });
 
-    savedCocktails[index] = { ...savedCocktails[index], ...recipeData };
-    saveToLocalStorage(savedCocktails); // Save updated list to localStorage
-    console.log("Recipe updated successfully!", savedCocktails[index]);
-    return savedCocktails[index];
+    if (!response.ok) {
+      throw new Error(`Failed to update recipe: ${response.statusText}`);
+    }
+
+    return await response.json();
   } catch (error) {
     console.error("Error updating recipe:", error);
-    throw error;
+    throw error; // re-throw the error after logging it
   }
 };
 

@@ -12,12 +12,7 @@ if (typeof window !== 'undefined') {
   };
 }
 
-// Optionally log the environment
-if (typeof process !== 'undefined' && process.versions && process.versions.node) {
-  console.log('Running in Node.js');
-} else {
-  console.log('Running in the browser');
-}
+
 
 if (!('process' in window)) {
   // @ts-ignore

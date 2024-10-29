@@ -10,6 +10,7 @@ import DeleteConfirmation from "../../components/ui/DeleteConfirmationComponent"
 
 const ViewMenu = () => {
   const { id } = useParams();
+
   const navigate = useNavigate(); // For navigation after deletion
   const [menu, setMenu] = useState(null);
   const [cocktailDetails, setCocktailDetails] = useState([]); // Store the actual cocktail details
@@ -23,20 +24,24 @@ const ViewMenu = () => {
         const foundMenu = retrievedMenus.find((menu) => menu.id === id);
         if (foundMenu) {
           setMenu(foundMenu);
-          const selectedCocktails = foundMenu.cocktailIds.map((cocktailId) =>
-            cocktailsData.savedCocktails.find(
-              (cocktail) => cocktail.id === cocktailId
+          const selectedCocktails = foundMenu.cocktailIds
+            .map((cocktailId) =>
+              cocktailsData.savedCocktails.find(
+                (cocktail) => cocktail.id === cocktailId
+              )
             )
-          );
+            .filter(Boolean); // Filters out any undefined cocktails
           setCocktailDetails(selectedCocktails);
         }
       } catch (error) {
         console.error("Error fetching menus:", error);
       }
     };
-
+  
     fetchMenu();
   }, [id]);
+  
+
 
   if (!menu) {
     return <p>Menu not found</p>;
@@ -51,7 +56,7 @@ const ViewMenu = () => {
       await menuService.deleteMenu(id); // Call deleteMenu function
       setDeletedMessage(true); // Show deletion message
       setShowConfirmation(false); // Close confirmation dialog
-      navigate("/"); // Redirect to menus list after deletion
+      navigate("/", { state: { status: "Menu was deleted" } });
       setTimeout(() => {
         setDeletedMessage(false);
       }, 2000); // Remove message after 2 seconds
@@ -61,15 +66,19 @@ const ViewMenu = () => {
   };
 
   const cancelDelete = () => {
-    setShowConfirmation(false); // Close confirmation dialog without deletion
+    setShowConfirmation(false);
+  };
+
+  const editHandle = async () => {
+    navigate(`/menu/edit-menu/${id}`); 
   };
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.menuTitle}>
-        <h3>The</h3>
+        <h3>the</h3>
         <h1>{menu.title}</h1>
-        <h3>Menu</h3>
+        <h3>menu</h3>
       </div>
       <div className={styles.viewMenu}>
         {cocktailDetails.map((cocktail) => (
@@ -85,7 +94,10 @@ const ViewMenu = () => {
           PDF
         </ButtonComponent>
         <ButtonComponent onClick={deleteHandle} category="delete">
-          Delete Menu
+          Delete
+        </ButtonComponent>
+        <ButtonComponent onClick={editHandle} category="edit">
+          Edit
         </ButtonComponent>
       </div>
 

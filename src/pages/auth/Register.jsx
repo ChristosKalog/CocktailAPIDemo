@@ -1,11 +1,9 @@
 // src/pages/auth/Register.jsx
 
 import React, { useState } from "react";
-import styles from "../../styles/register.module.css"; // Import the CSS module
+import styles from "../../styles/Register.module.css"; // Import the CSS module
 import ButtonComponent from "../../components/ui/ButtonComponent";
-import {Link } from "react-router-dom";
-
-
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -22,7 +20,7 @@ const Register = () => {
     if (password !== confirmPassword) {
       console.error("Passwords don't match!");
       return;
-    } // console.log('Registering with:', { username, email, fullName, role, bar, password });
+    }
   };
 
   return (
@@ -87,9 +85,7 @@ const Register = () => {
         </ButtonComponent>{" "}
       </form>
       <Link to="/login">Already a user? Login Here</Link>
-
     </div>
-    
   );
 };
 

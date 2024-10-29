@@ -1,6 +1,5 @@
 @import './variables.css';
 
-
 .recipeList {
   padding: var(--spacing-lg);
   background-color: var(--background-color);
@@ -107,7 +106,6 @@
 @media (max-width: 768px) {
   .recipeList {
     padding: var(--spacing-sm);
-    /* Adjust padding for smaller screens */
     max-height: none;
   }
 
@@ -133,21 +131,20 @@
 
   .searchBar {
     width: 100%;
+    margin: 0;
     margin-bottom: var(--spacing-xs);
+    border-radius: var(--spacing-xs);
   }
 
   .searchBar input {
     padding: var(--spacing-xs);
-    /* Reduce padding for smaller screens */
     font-size: 1rem;
-    /* Adjust font size for readability */
   }
 
   .filtersContainer select {
     margin: var(--spacing-xs) 0;
-    /* Add vertical spacing between selects */
     width: 100%;
-    /* Full width for selects */
+    border-radius: var(--spacing-xs);
   }
 
   .sortButton {
