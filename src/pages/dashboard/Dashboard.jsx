@@ -4,7 +4,6 @@ import styles from "../../styles/Dashboard.module.css";
 import menuService from "../../services/menuService";
 import recipeService from "../../services/recipeService";
 import ButtonComponent from "../../components/ui/ButtonComponent";
-import SmallButtonComponent from "../../components/ui/SmallButtonComponent";
 
 const Dashboard = () => {
   const [menus, setMenus] = useState([]);

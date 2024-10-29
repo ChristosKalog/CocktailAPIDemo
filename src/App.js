@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // Layout components
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-
 // Pages
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
@@ -40,6 +39,8 @@ function App() {
       ...window.process,
     };
   }, []);
+
+
 
   return (
       <Router>

@@ -1,12 +1,9 @@
 import mockUsers from '../data/mockUsers'; // Adjust the import path as necessary
 
-// Simulate an API call for logging in
 const login = async (username, password) => {
   try {
-    // Use the imported mockUsers directly
     const users = mockUsers;
 
-    // Find the user based on the username and password
     const user = users.find(user => user.username === username && user.password === password);
 
     if (user) {

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import cocktailsData from "../../data/db.json";
 import styles from "../../styles/RecipeDetail.module.css";
 import recipeService from "../../services/recipeService";
 import menuService from "../../services/menuService";
@@ -19,9 +18,22 @@ const RecipeDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const cocktail = cocktailsData.savedCocktails.find(
-    (cocktail) => cocktail.id === id
-  );
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    const fetchCocktails = async () => {
+      try {
+        const retrievedRecipes = await recipeService.getAllRecipes();
+        setRecipes(retrievedRecipes);
+      } catch (error) {
+        console.error("Error fetching recipes:", error);
+      }
+    };
+
+    fetchCocktails();
+  }, []);
+
+  const cocktail = recipes.find((cocktail) => cocktail.id === Number(id));
 
   const images = [
     { id: 1, src: placeholder1, alt: "Pic 1" },
@@ -111,7 +123,6 @@ const RecipeDetail = () => {
           menus.find((m) => m.id === menu.id).cocktailIds.length
         ) {
           await menuService.updateMenu(menu, menu.id);
-          
         }
       }
 

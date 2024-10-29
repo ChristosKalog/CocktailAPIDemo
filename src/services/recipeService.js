@@ -1,56 +1,35 @@
-import axios from "axios";
+import mockCocktails from "../data/mockCocktails"; // Adjust the path as necessary
 
-const API_URL = "http://192.168.1.4:5001/savedCocktails";
+const LOCAL_STORAGE_KEY = "savedRecipes"; // Key for local storage
 
-const saveRecipe = async (recipe) => {
-  try {
-    const response = await axios.post(API_URL, recipe);
-    return response.data;
-  } catch (error) {
-    console.error("Error saving recipe:", error);
-    throw error; 
-  }
+const saveRecipe = (recipe) => {
+  const recipes = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+  recipes.push(recipe);
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(recipes));
+  return recipe; // Return the saved recipe
 };
 
-const getAllRecipes = async () => {
-  try {
-    const response = await axios.get(API_URL);
-    return response.data;
-  } catch (error) {
-    console.error("Error retrieving recipes:", error);
-    return [];
-  }
+const getAllRecipes = () => {
+  const localRecipes =
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+  return [...localRecipes, ...mockCocktails]; // Combine local storage recipes with mock data
 };
 
-const deleteRecipe = async (id) => {
-  try {
-    const response = await axios.delete(`${API_URL}/${id}`);
-    return response.data; // You can return any useful information after deletion
-  } catch (error) {
-    console.error("Error deleting recipe:", error);
-    throw error; // Handle the error accordingly in your component
-  }
+const deleteRecipe = (id) => {
+  const recipes = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+  const updatedRecipes = recipes.filter((recipe) => recipe.id !== id);
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedRecipes));
+  return Promise.resolve(); // Return a resolved promise
 };
 
-const updateRecipe = async (id, recipeData) => {
-  try {
-    const response = await fetch(`${API_URL}/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(recipeData),
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to update recipe: ${response.statusText}`);
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error("Error updating recipe:", error);
-    throw error; // re-throw the error after logging it
+const updateRecipe = (id, recipeData) => {
+  const recipes = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+  const recipeIndex = recipes.findIndex((recipe) => recipe.id === id);
+  if (recipeIndex !== -1) {
+    recipes[recipeIndex] = { ...recipes[recipeIndex], ...recipeData };
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(recipes));
   }
+  return Promise.resolve(recipes[recipeIndex]); // Return the updated recipe
 };
 
 export default { saveRecipe, getAllRecipes, deleteRecipe, updateRecipe };

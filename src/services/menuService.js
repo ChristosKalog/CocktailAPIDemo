@@ -1,49 +1,35 @@
-import axios from "axios";
+import mockMenus from "../data/mockMenus"; // Assuming you have this file
 
-const API_URL = "../data/mockUsers.json"; // Update this to the correct path of your db.json file
+const LOCAL_STORAGE_KEY = "menus"; // Key for local storage
 
-const createMenu = async (createMenu) => {
-  try {
-    const response = await axios.post(API_URL, createMenu);
-    return response.data;
-  } catch (error) {
-    console.error("Error saving recipe:", error);
-    throw error;
-  }
+const createMenu = (menu) => {
+  const menus = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+  menus.push(menu);
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(menus));
+  return menu; // Return the created menu
 };
 
-const fetchMenus = async () => {
-  try {
-    const response = await fetch(`${API_URL}`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch menus");
-    }
+const fetchMenus = () => {
+  const localMenus = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
 
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching menus:", error);
-    throw error;
-  }
+  return Promise.resolve([...localMenus, ...mockMenus]); // Combine local storage and mock data
 };
 
-const deleteMenu = async (id) => {
-  try {
-    const response = await axios.delete(`${API_URL}/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error("Error deleting menu:", error);
-    throw error;
-  }
+const deleteMenu = (id) => {
+  const menus = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+  const updatedMenus = menus.filter((menu) => menu.id !== id);
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedMenus));
+  return Promise.resolve(); // You can return the updated menus if needed
 };
 
-const updateMenu = async (menu, id) => {
-  try {
-    const response = await axios.put(`${API_URL}/${id}`, menu); // Pass menu data here
-    return response.data;
-  } catch (error) {
-    console.error("Error updating menu:", error);
-    throw error;
+const updateMenu = (updatedMenu, id) => {
+  const menus = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+  const menuIndex = menus.findIndex((menu) => menu.id === id);
+  if (menuIndex !== -1) {
+    menus[menuIndex] = { ...menus[menuIndex], ...updatedMenu };
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(menus));
   }
+  return Promise.resolve(menus[menuIndex]); // Return the updated menu
 };
 
 export default { createMenu, deleteMenu, fetchMenus, updateMenu };
