@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useId } from "react";
 import cocktailsData from "../../data/db.json";
 import menuService from "../../services/menuService";
 import styles from "../../styles/CreateMenu.module.css";
@@ -10,6 +10,7 @@ import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 const initialState = {
   title: "",
   selectedCocktails: [],
+  id: "",
 };
 
 function reducer(state, action) {
@@ -48,6 +49,8 @@ function reducer(state, action) {
 }
 
 const CreateMenu = () => {
+  const randomId = useId();
+
   const [state, dispatch] = useReducer(reducer, initialState);
   const navigate = useNavigate();
 
@@ -61,6 +64,7 @@ const CreateMenu = () => {
       title: state.title,
       cocktailIds: state.selectedCocktails.map((c) => c.id),
       dateCreated: new Date().toISOString(),
+      id: randomId,
     };
 
     try {
@@ -163,7 +167,10 @@ const CreateMenu = () => {
         </div>
       </div>
       <div className={styles.buttonsContainer}>
-        <ButtonComponent onClick={() => dispatch({ type: "RESET_SELECTION" })} category="reset">
+        <ButtonComponent
+          onClick={() => dispatch({ type: "RESET_SELECTION" })}
+          category="reset"
+        >
           Reset Menu
         </ButtonComponent>
         <ButtonComponent onClick={handleSaveMenu} category="save">

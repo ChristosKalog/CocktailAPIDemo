@@ -6,7 +6,7 @@ const createMenu = (menu) => {
   const menus = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
   menus.push(menu);
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(menus));
-  return menu; 
+  return menu;
 };
 
 const fetchMenus = async () => {
@@ -32,4 +32,6 @@ const updateMenu = (updatedMenu, id) => {
   return Promise.resolve(menus[menuIndex]); // Return the updated menu
 };
 
-export default { createMenu, deleteMenu, fetchMenus, updateMenu };
+const menuService = { createMenu, deleteMenu, fetchMenus, updateMenu };
+
+export default menuService;

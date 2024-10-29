@@ -5,48 +5,48 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70vh; /* Full viewport height */
-  background-color: var(--background-color); /* Background color */
-  color: var(--text-color); /* Text color */
-  padding: var(--spacing-lg); /* Padding */
+  height: 70vh; 
+  background-color: var(--background-color);
+  color: var(--text-color); 
+  padding: var(--spacing-lg);
 }
 
 .registerForm {
-  background-color: rgba(30, 30, 30, 0.8); /* Slightly transparent dark background */
+  background-color: rgba(30, 30, 30, 0.8); 
   border-radius: var(--border-radius-md);
   padding: var(--spacing-lg);
   box-shadow: var(--box-shadow);
   width: 100%;
-  max-width: 400px; /* Max width for the form */
+  max-width: 400px;
 }
 
 h2 {
-  margin-bottom: var(--spacing-lg); /* Space below the heading */
-  text-align: center; /* Centered heading */
-  color: #ffd700; /* Gold color for the heading */
+  margin-bottom: var(--spacing-lg);
+  text-align: center; 
+  color: #ffd700; 
 }
 
 .inputField {
-  width: 100%; /* Full width */
+  width: 100%; 
   padding: var(--spacing-sm);
-  margin-bottom: var(--spacing-md); /* Space between inputs */
-  border: 1px solid var(--secondary-color); /* Border color */
-  border-radius: var(--border-radius-sm); /* Rounded corners */
-  background-color: rgba(255, 255, 255, 0.1); /* Light background for input */
-  color: var(--text-color); /* Text color inside input */
-  transition: border-color var(--transition); /* Transition for border color */
+  margin-bottom: var(--spacing-md);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color); 
+  transition: border-color var(--transition); 
 }
 
 .inputField:focus {
-  border-color: #ffd700; /* Gold border on focus */
-  outline: none; /* Remove default outline */
+  border-color: #ffd700; 
+  outline: none;
 }
 
 .submitButton {
-  width: 100%; /* Full width */
+  width: 100%; 
   padding: var(--spacing-sm);
-  background-color: var(--primary-color); /* Primary color for button */
-  color: var(--text-color);; /* Button text color */
+  background-color: var(--primary-color); 
+  color: var(--text-color);
   border: none; /* No border */
   border-radius: var(--border-radius-md); /* Rounded corners */
   cursor: pointer; /* Pointer cursor */

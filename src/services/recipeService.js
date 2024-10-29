@@ -32,4 +32,6 @@ const updateRecipe = (id, recipeData) => {
   return Promise.resolve(recipes[recipeIndex]); // Return the updated recipe
 };
 
-export default { saveRecipe, getAllRecipes, deleteRecipe, updateRecipe };
+const recipeService =  { saveRecipe, getAllRecipes, deleteRecipe, updateRecipe };
+
+export default recipeService;

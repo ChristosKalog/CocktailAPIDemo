@@ -48,7 +48,7 @@ const Dashboard = () => {
   return (
     <div className={styles.dashboard}>
       <div className={styles.bigContainer}>
-        <div className={styles.menusList}>
+        <div key="menusList" className={styles.menusList}>
           <div className={styles.menuTitle}>
             <h3>Your Latest Menus</h3>{" "}
             <Link to="/menus" className={styles.viewAllLink}>
@@ -64,7 +64,7 @@ const Dashboard = () => {
                   </Link>
                 </div>
               ))}
-              <ButtonComponent category="add">
+              <ButtonComponent key="createMenuButton" category="add">
                 <Link to="/menu/create">Create Menu</Link>
               </ButtonComponent>
             </div>
@@ -81,7 +81,7 @@ const Dashboard = () => {
           )}
         </div>
 
-        <div className={styles.menusList}>
+        <div key="cocktaiList" className={styles.menusList}>
           <div className={styles.menuTitle}>
             <h3>Your Latest Cocktails</h3>{" "}
             <Link to="/recipes" className={styles.viewAllLink}>
@@ -100,7 +100,7 @@ const Dashboard = () => {
                   </Link>
                 </div>
               ))}
-              <ButtonComponent category="add">
+              <ButtonComponent key="addRecipeButton" category="add">
                 <Link to="/recipe/Add">Add Recipe</Link>
               </ButtonComponent>
             </div>
