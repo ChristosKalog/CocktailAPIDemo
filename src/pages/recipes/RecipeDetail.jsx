@@ -23,7 +23,7 @@ const RecipeDetail = () => {
   useEffect(() => {
     const fetchCocktails = async () => {
       try {
-        const retrievedRecipes = await recipeService.getAllRecipes();
+        const retrievedRecipes = recipeService.getAllRecipes();
         setRecipes(retrievedRecipes);
       } catch (error) {
         console.error("Error fetching recipes:", error);
@@ -46,7 +46,6 @@ const RecipeDetail = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [showConfirmation, setShowConfirmation] = useState(false); // State to manage confirmation dialog
-  const [deletedMessage, setDeletedMessage] = useState(false); // State for deletion message
 
   const mainImage = images[currentImageIndex].src; // Set the main image based on index
 
@@ -116,7 +115,6 @@ const RecipeDetail = () => {
         return menu;
       });
 
-      // Update menus in the database where changes were made
       for (const menu of updatedMenus) {
         if (
           menu.cocktailIds.length !==
@@ -129,13 +127,8 @@ const RecipeDetail = () => {
       // Delete the cocktail from the recipe service
       await recipeService.deleteRecipe(id);
 
-      // Show deletion message, hide confirmation, and navigate back
-      setDeletedMessage(true);
       setShowConfirmation(false);
       navigate("/recipes");
-      setTimeout(() => {
-        setDeletedMessage(false);
-      }, 2000);
     } catch (error) {
       console.error("Error deleting cocktail or updating menus:", error);
     }
@@ -212,17 +205,17 @@ const RecipeDetail = () => {
               </div>
               <div className={styles.infoContainer}>
                 <h2>Style:</h2>
-                <p>{cocktail.cocktailStyle}</p>
+                <p>{cocktail.style}</p>
               </div>
               <div className={styles.infoContainer}>
                 <h2>ABV: </h2>
                 <p>
                   <span
                     className={`${styles.abv} ${getABVClass(
-                      cocktail.alcoholValue
+                      cocktail.abv
                     )}`}
                   >
-                    {cocktail.alcoholValue}%
+                    {cocktail.abv}%
                   </span>
                 </p>
               </div>
@@ -240,10 +233,10 @@ const RecipeDetail = () => {
             <div className={styles.recipeContainer}>
               <p>{cocktail.recipe}</p>
             </div>
-            <h5>Made At:</h5>
+            {/* <h5>Made At:</h5>
             <div className={styles.recipeContainer}>
               <p>{cocktail.date}</p>
-            </div>
+            </div> */}
             <div className={styles.bigContainer}>
               <div className={styles.buttonsContainer}>
                 <ButtonComponent onClick={editHandle} category="edit">

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import cocktailsData from "../../data/db.json";
+
+import recipeService from "../../services/recipeService";
 import ButtonComponent from "../../components/ui/ButtonComponent";
-import RecipeComponent from "../../components/ui/RecipeComponent"; // Import RecipeComponent
+import RecipeComponent from "../../components/ui/RecipeComponent"; 
 import styles from "../../styles/RecipeList.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,10 +12,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const RecipeList = () => {
+  const [recipes, setRecipes] = useState([]);
   const [filter, setFilter] = useState("");
   const [complexity, setComplexity] = useState("");
-  const [ingredient, setIngredient] = useState(""); // New state for ingredient filter
-  const [searchTerm, setSearchTerm] = useState(""); // New state for search bar
+  const [ingredient, setIngredient] = useState(""); 
+  const [searchTerm, setSearchTerm] = useState(""); 
   const [sortOrder, setSortOrder] = useState("asc");
 
   const clearFilters = () => {
@@ -24,14 +26,27 @@ const RecipeList = () => {
     setSearchTerm(""); // Clear search bar as well
   };
 
+  useEffect(() => {
+    const fetchCocktails = async () => {
+      try {
+        const retrievedRecipes = recipeService.getAllRecipes();
+        setRecipes(retrievedRecipes);
+      } catch (error) {
+        console.error("Error fetching recipes:", error);
+      }
+    };
+
+    fetchCocktails();
+  }, []);
+
   const toggleSortOrder = () => {
     setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
   };
 
   // Filter cocktails by style, complexity, ingredient, and search term
-  const filteredCocktails = cocktailsData.savedCocktails
+  const filteredRecipes = recipes
     .filter((cocktail) => {
-      const matchesStyle = filter ? cocktail.cocktailStyle === filter : true;
+      const matchesStyle = filter ? cocktail.style === filter : true;
       const matchesComplexity = complexity
         ? cocktail.complexityLevel === complexity
         : true;
@@ -47,7 +62,7 @@ const RecipeList = () => {
           cocktail.ingredients.some((ing) =>
             ing.name.toLowerCase().includes(searchTerm.toLowerCase())
           ) ||
-          cocktail.cocktailStyle
+          cocktail.style
             .toLowerCase()
             .includes(searchTerm.toLowerCase()) ||
           cocktail.description?.toLowerCase().includes(searchTerm.toLowerCase()) // Optional description
@@ -70,21 +85,15 @@ const RecipeList = () => {
 
   // Get unique styles, complexities, and ingredients for filter options
   const stylesOptions = [
-    ...new Set(
-      cocktailsData.savedCocktails.map((cocktail) => cocktail.cocktailStyle)
-    ),
+    ...new Set(recipes.map((cocktail) => cocktail.style)),
   ];
   const complexityOptions = [
-    ...new Set(
-      cocktailsData.savedCocktails.map((cocktail) => cocktail.complexityLevel)
-    ),
+    ...new Set(recipes.map((cocktail) => cocktail.complexityLevel)),
   ];
 
   const ingredientOptions = [
     ...new Set(
-      cocktailsData.savedCocktails.flatMap((cocktail) =>
-        cocktail.ingredients.map((ing) => ing.name)
-      )
+      recipes.flatMap((cocktail) => cocktail.ingredients.map((ing) => ing.name))
     ),
   ].sort((a, b) => a.localeCompare(b)); // Sort alphabetically
 
@@ -165,7 +174,7 @@ const RecipeList = () => {
       </div>
 
       <div className={styles.recipeGrid}>
-        {filteredCocktails.map((cocktail) => (
+        {filteredRecipes.map((cocktail) => (
           <RecipeComponent key={cocktail.id} cocktail={cocktail} />
         ))}
       </div>

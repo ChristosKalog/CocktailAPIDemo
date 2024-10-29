@@ -10,7 +10,7 @@ import IngredientSuggestionInput from "./IngredientSuggestionInput";
 const AddRecipe = () => {
   const [recipe, setRecipe] = useState({
     name: "",
-    cocktailStyle: "",
+    style: "",
     complexityLevel: "",
     ingredients: [{ name: "", quantity: "", id: Date.now() }],
     recipe: "",
@@ -63,7 +63,7 @@ const AddRecipe = () => {
 
       setRecipe({
         name: "",
-        cocktailStyle: "",
+        style: "",
         complexityLevel: "",
         ingredients: [{ name: "", quantity: "" }],
         recipe: "",
@@ -102,8 +102,8 @@ const AddRecipe = () => {
         />
         <FormInput
           type="select"
-          name="cocktailStyle"
-          value={recipe.cocktailStyle}
+          name="style"
+          value={recipe.style}
           handleChange={handleChange}
           options={["Classic", "Modern", "Tropical", "Tiki", "Sour", "Highballs"]}
           placeholder="Cocktail Style"

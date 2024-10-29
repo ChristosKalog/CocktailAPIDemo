@@ -210,11 +210,11 @@ h5 {
   margin-right: var(--spacing-sm);
   padding-left: var(--spacing-sm);
   font-size: var(--font-size-md);
-  color: var(--text-color);
   min-width: 200px;
+  color: var(--text-color);
   border-radius: var(--spacing-sm);
-  transition: background-color var(--transition), box-shadow var(--transition);
-}
+  transition: background-color var(--transition), box-shadow var(--transition);}
+
 
 .ingredient:hover {
   background-color: rgba(255, 255, 255, 0.1);

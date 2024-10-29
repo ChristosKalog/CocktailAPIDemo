@@ -20,7 +20,7 @@ const EditRecipe = () => {
     name: "",
     description: "",
     recipe: "",
-    cocktailStyle: "",
+    style: "",
     complexityLevel: "",
     ingredients: [{ name: "", quantity: "", id: Date.now() }], // Temporary for adding new ingredients
     alcoholValue: 0,
@@ -35,7 +35,7 @@ const EditRecipe = () => {
         name: cocktail.name,
         description: cocktail.description,
         recipe: cocktail.recipe,
-        cocktailStyle: cocktail.cocktailStyle,
+        style: cocktail.style,
         complexityLevel: cocktail.complexityLevel,
         ingredients: cocktail.ingredients, // Keep existing IDs
         alcoholValue: cocktail.alcoholValue,
@@ -111,8 +111,8 @@ const EditRecipe = () => {
         </div>
         <div className={styles.formGroup}>
           <select
-            name="cocktailStyle"
-            value={recipe.cocktailStyle}
+            name="style"
+            value={recipe.style}
             onChange={handleChange}
             required
             className={styles.selectInput}

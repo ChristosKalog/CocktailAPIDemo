@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 import profilePic from "../../assets/images/profile.jpg";
 import barPic from "../../assets/images/bar.png";
 import styles from "../../styles/Profile.module.css";
-import { useAuth } from "../../context/AuthContext"; 
-import mockCocktails from "../../data/mockCocktails"; 
-import mockUsers from "../../data/mockUsers"; 
-import DeleteConfirmation from "../../components/ui/DeleteConfirmationComponent"; 
-import ButtonComponent from "../../components/ui/ButtonComponent"; 
+import { useAuth } from "../../context/AuthContext";
+import mockCocktails from "../../data/mockCocktails";
+import mockUsers from "../../data/mockUsers";
+import DeleteConfirmation from "../../components/ui/DeleteConfirmationComponent";
+import ButtonComponent from "../../components/ui/ButtonComponent";
+import menuService from "../../services/menuService";
 
 const ProfilePage = () => {
   const [cocktailsArray, setCocktailsArray] = useState([]);
-  const { user } = useAuth(); 
+  const { user } = useAuth();
   const [showEmpty, setShowEmpty] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showDeletedMessage, setShowDeletedMessage] = useState(false);
@@ -28,12 +29,8 @@ const ProfilePage = () => {
   };
 
   const confirmDelete = () => {
-    localStorage.clear();
+    menuService.deleteAllMenus();
     setShowConfirmation(false);
-    setShowDeletedMessage(true);
-    setTimeout(() => {
-      setShowDeletedMessage(false);
-    }, 2000);
   };
 
   const cancelDelete = () => {
@@ -123,7 +120,11 @@ const ProfilePage = () => {
         <div className={styles.section}>
           <h1>Actions</h1>
           <div className={styles.buttonContainer}>
-            <ButtonComponent category="delete" icon="faTrash" onClick={handleDeleteClick}>
+            <ButtonComponent
+              category="delete"
+              icon="faTrash"
+              onClick={handleDeleteClick}
+            >
               Delete Menus
             </ButtonComponent>
             {showConfirmation && (

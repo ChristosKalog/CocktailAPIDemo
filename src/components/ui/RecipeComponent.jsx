@@ -4,14 +4,16 @@ import styles from "../../styles/Recipecomponent.module.css";
 
 const RecipeComponent = ({ cocktail }) => {
   const truncateDescription = (description, maxLength = 80) => {
-    if (!description) return ""; 
+    if (!description) return "";
     if (description.length > maxLength) {
       return description.slice(0, maxLength) + "...";
     }
     return description;
   };
 
-  const complexityLevel = cocktail.complexityLevel[0].toUpperCase() + cocktail.complexityLevel.slice(1)
+  const complexityLevel =
+    cocktail.complexityLevel[0].toUpperCase() +
+    cocktail.complexityLevel.slice(1);
   return (
     <Link
       key={cocktail.id}
@@ -27,7 +29,7 @@ const RecipeComponent = ({ cocktail }) => {
         </div>
         <div className={styles.infoContainer}>
           <div className={styles.headerInfo}>
-            <p>{cocktail.cocktailStyle}</p>
+            <p>{cocktail.style}</p>
             <p>|</p>
             <p>{complexityLevel}</p>
           </div>

@@ -13,7 +13,7 @@ const AddRecipe = () => {
     name: "",
     description: "This is description",
     date: "",
-    cocktailStyle: "",
+    style: "",
     complexityLevel: "",
     glassType: "",
     recipe: "",
@@ -127,7 +127,7 @@ const AddRecipe = () => {
         // Reset the form fields
         id: Date.now().toString(), // Reset ID for new recipe
         name: "",
-        cocktailStyle: "",
+        style: "",
         complexityLevel: "",
         glassType: "",
         ingredients: [{ name: "", quantity: "", id: Date.now() }],
@@ -162,8 +162,8 @@ const AddRecipe = () => {
         </div>
         <div className={styles.formGroup}>
           <select
-            name="cocktailStyle"
-            value={recipe.cocktailStyle}
+            name="style"
+            value={recipe.style}
             onChange={handleChange}
             required
             className={styles.selectInput}
