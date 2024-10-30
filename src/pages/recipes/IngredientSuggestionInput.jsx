@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/AddRecipe.module.css";
+import styles from '../../styles/AddRecipe.module.css';
 
 const IngredientSuggestionInput = ({ suggestions, value, handleChange, placeholder }) => (
   <div className={styles.formGroup}>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "../../styles/Recipecomponent.module.css";
+import styles from '../../styles/Recipecomponent.module.css';
 
 const RecipeComponent = ({ cocktail }) => {
   const truncateDescription = (description, maxLength = 80) => {

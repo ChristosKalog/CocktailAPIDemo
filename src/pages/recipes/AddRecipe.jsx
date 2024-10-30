@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/AddRecipe.module.css";
+import styles from '../../styles/AddRecipe.module.css';
 import rangeStyles from "../../styles/Range.module.css";
 import recipeService from "../../services/recipeService";
 import ButtonComponent from "../../components/ui/ButtonComponent";

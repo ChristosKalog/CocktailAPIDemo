@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import menuService from "../../services/menuService";
-import styles from "../../styles/Menus.module.css";
+import menuService from '../../services/menuService';
+import styles from '../../styles/Menus.module.css';
 import ButtonComponent from "../../components/ui/ButtonComponent";
 
 const Menus = () => {

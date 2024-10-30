@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { handleDownloadPDF } from "./download";
-import styles from "../../styles/ViewMenu.module.css";
+import styles from '../../styles/ViewMenu.module.css';
 import menuService from "../../services/menuService";
 import cocktailsData from "../../data/db.json";
 import ButtonComponent from "../../components/ui/ButtonComponent";

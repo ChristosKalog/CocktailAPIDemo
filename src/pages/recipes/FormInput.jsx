@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/AddRecipe.module.css";
+import styles from '../../styles/AddRecipe.module.css';
 
 const FormInput = ({ type, name, value, handleChange, options, placeholder }) => {
   if (type === "select") {

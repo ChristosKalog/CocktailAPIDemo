@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../../styles/Login.module.css";
-import ButtonComponent from "../../components/ui/ButtonComponent";
+import styles from '../../styles/Login.module.css';
+import ButtonComponent from '../../components/ui/ButtonComponent';
 import authService from "../../services/authService";
 import { useAuth } from "../../context/AuthContext";
 

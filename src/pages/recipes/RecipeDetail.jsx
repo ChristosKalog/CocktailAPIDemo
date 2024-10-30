@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import styles from "../../styles/RecipeDetail.module.css";
+import styles from '../../styles/RecipeDetail.module.css';
 import recipeService from "../../services/recipeService";
 
 // import menuService from "../../services/menuService";

@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import recipeService from "../../services/recipeService";
 import ButtonComponent from "../../components/ui/ButtonComponent";
 import RecipeComponent from "../../components/ui/RecipeComponent"; 
-import styles from "../../styles/RecipeList.module.css";
+import styles from '../../styles/RecipeList.module.css';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSortAlphaAsc,

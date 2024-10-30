@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/CocktailComponent.module.css";
+import styles from '../../styles/CocktailComponent.module.css';
 
 const CocktailComponent = ({ cocktail }) => {
   return (

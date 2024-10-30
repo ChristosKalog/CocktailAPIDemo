@@ -1,8 +1,8 @@
 // src/pages/auth/Register.jsx
 
 import React, { useState } from "react";
-import styles from "../../styles/Login.module.css"; // Import the CSS module
-import ButtonComponent from "../../components/ui/ButtonComponent";
+import styles from '../../styles/Login.module.css'; // Import the CSS module
+import ButtonComponent from '../../components/ui/ButtonComponent'
 import { Link } from "react-router-dom";
 
 const Register = () => {

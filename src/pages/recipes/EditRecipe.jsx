@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import cocktailsData from "../../data/db.json"; // import the cocktails data
 import recipeService from "../../services/recipeService";
-import styles from "../../styles/EditRecipe.module.css"; // Import CSS module
+import styles from '../../styles/EditRecipe.module.css'; // Import CSS module
 import rangeStyles from "../../styles/Range.module.css"; // Import CSS module
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesome
 import { faClose, faAdd } from "@fortawesome/free-solid-svg-icons"; // Import icons

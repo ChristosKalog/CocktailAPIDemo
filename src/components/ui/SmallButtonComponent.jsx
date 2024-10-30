@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/SmallButtonComponent.module.css";
+import styles from '../../styles/SmallButtonComponent.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
