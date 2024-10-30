@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "../../styles/Login.module.css";
 import ButtonComponent from "../../components/ui/ButtonComponent";
 import authService from "../../services/authService";
@@ -83,7 +83,6 @@ const Login = () => {
           Log In
         </ButtonComponent>
       </form>
-      <Link to="/register">New User? Register Here</Link>
     </div>
   );
 };
