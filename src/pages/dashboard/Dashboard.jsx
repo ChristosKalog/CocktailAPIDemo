@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom"; // Import useNavigate
-import styles from '../../styles/Dashboard.module.css';
+import styles from '../../styles/dashboard.module.css';
 import menuService from "../../services/menuService";
 import recipeService from "../../services/recipeService";
 import ButtonComponent from "../../components/ui/ButtonComponent";

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import profilePic from "../../assets/images/profile.jpg";
 import barPic from "../../assets/images/bar.png";
-import styles from '../../styles/Profile.module.css';
+import styles from '../../styles/profile.module.css';
 import { useAuth } from "../../context/AuthContext";
 import mockCocktails from "../../data/mockCocktails";
 import mockUsers from "../../data/mockUsers";
