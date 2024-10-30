@@ -1,9 +1,9 @@
 {
-  "short_name": "Cocktail API",
-  "name": "Cocktail API",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
-      "src": "./favIcon.png",
+      "src": "favIcon.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
