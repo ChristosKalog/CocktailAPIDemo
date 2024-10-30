@@ -1,7 +1,7 @@
 import React, { useReducer, useId } from "react";
 import cocktailsData from "../../data/db.json";
 import menuService from "../../services/menuService";
-import styles from "../../styles/CreateMenu.module.css";
+import styles from "../../styles/createmenu.module.css";
 import ButtonComponent from "../../components/ui/ButtonComponent";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -1,6 +1,3 @@
 [build]
-  command = "npm run build"
+  command = "echo 'Skipping build as build folder is prebuilt'"
   publish = "build"
-
-[build.environment]
-  CI = "false"

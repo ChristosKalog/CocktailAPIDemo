@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import cocktailsData from "../../data/db.json";
 import menuService from '../../services/menuService';
-import styles from '../../styles/CreateMenu.module.css';
+import styles from '../../styles/createmenu.module.css';
 import ButtonComponent from "../../components/ui/ButtonComponent";
 
 const EditMenu = () => {
