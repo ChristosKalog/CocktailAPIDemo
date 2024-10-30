@@ -14,7 +14,7 @@ const EditMenu = () => {
         setMenus(Array.isArray(retrievedMenus) ? retrievedMenus : []);
       } catch (error) {
         console.error("Error fetching menus:", error);
-        setMenus([]); // Set menus to an empty array in case of an error
+        setMenus([]); 
       }
     };
     fetchMenus();
@@ -33,7 +33,6 @@ const EditMenu = () => {
     setSelectedCocktails([]);
   };
 
-  // Load the menu data into state for editing
   useEffect(() => {
     if (menu) {
       setTitle(menu.title);

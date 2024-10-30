@@ -1,8 +1,7 @@
 import React from "react";
 import styles from '../../styles/WhereToPage.module.css';
 import ButtonComponent from "../../components/ui/ButtonComponent";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link,  useLocation} from "react-router-dom"; // Import useNavigate
+import { Link,  useLocation} from "react-router-dom";
 
 const WhereToPage = () => {
 

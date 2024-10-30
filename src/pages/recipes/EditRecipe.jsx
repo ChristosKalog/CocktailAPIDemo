@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import cocktailsData from "../../data/db.json"; // import the cocktails data
 import recipeService from "../../services/recipeService";
-import styles from '../../styles/EditRecipe.module.css'; // Import CSS module
+import styles from "../../styles/EditRecipe.module.css"; // Import CSS module
 import rangeStyles from "../../styles/Range.module.css"; // Import CSS module
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesome
 import { faClose, faAdd } from "@fortawesome/free-solid-svg-icons"; // Import icons
@@ -22,13 +22,13 @@ const EditRecipe = () => {
     recipe: "",
     style: "",
     complexityLevel: "",
-    ingredients: [{ name: "", quantity: "", id: Date.now() }], // Temporary for adding new ingredients
+    ingredients: [{ name: "", quantity: "", id: Date.now() }],
     alcoholValue: 0,
     price: "",
-    smallPicture: "", // Added for smallPicture
+    smallPicture: "",
   });
 
-  // Load the cocktail data into state for editing
+  // Load the cocktail data into state
   useEffect(() => {
     if (cocktail) {
       setRecipe({
@@ -37,10 +37,10 @@ const EditRecipe = () => {
         recipe: cocktail.recipe,
         style: cocktail.style,
         complexityLevel: cocktail.complexityLevel,
-        ingredients: cocktail.ingredients, // Keep existing IDs
+        ingredients: cocktail.ingredients,
         alcoholValue: cocktail.alcoholValue,
         price: cocktail.price,
-        smallPicture: cocktail.smallPicture, // Added for smallPicture
+        smallPicture: cocktail.smallPicture,
       });
     }
   }, [cocktail]);
@@ -58,7 +58,7 @@ const EditRecipe = () => {
   };
 
   const handleAddIngredient = () => {
-    const newId = Date.now(); // Temporary ID for new ingredient
+    const newId = Date.now();
     setRecipe({
       ...recipe,
       ingredients: [
@@ -76,9 +76,8 @@ const EditRecipe = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Update the recipe with the updated data
-      await recipeService.updateRecipe(id, { ...recipe }); // Pass the updated recipe
-      navigate(`/recipes/${id}`); // Redirect to the recipe detail page after saving
+      await recipeService.updateRecipe(id, { ...recipe });
+      navigate(`/recipes/${id}`);
     } catch (error) {
       console.error("Error updating recipe:", error);
     }
@@ -210,7 +209,7 @@ const EditRecipe = () => {
             placeholder="--"
             required
           />
-          <span>EUR</span> {/* Added span for currency display */}
+          <span>EUR</span>
         </div>
         <div className={styles.formGroup}>
           <textarea

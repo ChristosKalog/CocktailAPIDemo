@@ -44,7 +44,6 @@ const RecipeList = () => {
     setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
   };
 
-  // Filter cocktails by style, complexity, ingredient, and search term
   const filteredRecipes = recipes
     .filter((cocktail) => {
       const matchesStyle = filter ? cocktail.style === filter : true;
@@ -57,14 +56,13 @@ const RecipeList = () => {
           )
         : true;
 
-      // Check if search term matches the name, ingredients, or other details
       const matchesSearchTerm = searchTerm
         ? cocktail.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           cocktail.ingredients.some((ing) =>
             ing.name.toLowerCase().includes(searchTerm.toLowerCase())
           ) ||
           cocktail.style.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          cocktail.description?.toLowerCase().includes(searchTerm.toLowerCase()) // Optional description
+          cocktail.description?.toLowerCase().includes(searchTerm.toLowerCase())
         : true;
 
       return (
@@ -82,7 +80,6 @@ const RecipeList = () => {
       }
     });
 
-  // Get unique styles, complexities, and ingredients for filter options
   const stylesOptions = [...new Set(recipes.map((cocktail) => cocktail.style))];
   const complexityOptions = [
     ...new Set(recipes.map((cocktail) => cocktail.complexityLevel)),

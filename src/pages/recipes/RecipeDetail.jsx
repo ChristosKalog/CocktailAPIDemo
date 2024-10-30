@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import styles from '../../styles/RecipeDetail.module.css';
+import styles from "../../styles/RecipeDetail.module.css";
 import recipeService from "../../services/recipeService";
 
 // import menuService from "../../services/menuService";
@@ -46,7 +46,6 @@ const RecipeDetail = () => {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
-  // const [showConfirmation, setShowConfirmation] = useState(false); // State to manage confirmation dialog
 
   const mainImage = images[currentImageIndex].src; // Set the main image based on index
 
@@ -90,54 +89,6 @@ const RecipeDetail = () => {
   if (!cocktail) {
     return <div className={styles.error}>Cocktail not found!</div>;
   }
-
-  // const deleteHandle = async () => {
-  //   setShowConfirmation(true); // Show confirmation dialog
-  // };
-
-  // const editHandle = async () => {
-  //   navigate(`/edit-recipe/${id}`); // Navigate to the EditRecipe component
-  // };
-
-  // const confirmDelete = async () => {
-  //   try {
-  //     // Fetch all menus to find where this cocktail ID is used
-  //     const menus = await menuService.fetchMenus();
-  //     const updatedMenus = menus.map((menu) => {
-  //       if (menu.cocktailIds.includes(id)) {
-  //         // Filter out the current cocktail ID
-  //         return {
-  //           ...menu,
-  //           cocktailIds: menu.cocktailIds.filter(
-  //             (cocktailId) => cocktailId !== id
-  //           ),
-  //         };
-  //       }
-  //       return menu;
-  //     });
-
-  //     for (const menu of updatedMenus) {
-  //       if (
-  //         menu.cocktailIds.length !==
-  //         menus.find((m) => m.id === menu.id).cocktailIds.length
-  //       ) {
-  //         await menuService.updateMenu(menu, menu.id);
-  //       }
-  //     }
-
-  //     // Delete the cocktail from the recipe service
-  //     await recipeService.deleteRecipe(id);
-
-  //     setShowConfirmation(false);
-  //     navigate("/recipes");
-  //   } catch (error) {
-  //     console.error("Error deleting cocktail or updating menus:", error);
-  //   }
-  // };
-
-  // const cancelDelete = () => {
-  //   setShowConfirmation(false); // Close confirmation dialog without deletion
-  // };
 
   return (
     <>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from '../../styles/AddRecipe.module.css';
+import styles from "../../styles/AddRecipe.module.css";
 import rangeStyles from "../../styles/Range.module.css";
 import recipeService from "../../services/recipeService";
 import ButtonComponent from "../../components/ui/ButtonComponent";
@@ -23,7 +23,7 @@ const AddRecipe = () => {
     smallPicture: "placeholder_small.png",
   });
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const ingredientSuggestions = [
     "Absinthe",
@@ -125,7 +125,7 @@ const AddRecipe = () => {
       await recipeService.saveRecipe({ ...recipe, date: formattedDate });
       setRecipe({
         // Reset the form fields
-        id: Date.now().toString(), // Reset ID for new recipe
+        id: Date.now().toString(),
         name: "",
         style: "",
         complexityLevel: "",
@@ -136,7 +136,7 @@ const AddRecipe = () => {
         price: "",
         date: "",
         description: "",
-        smallPicture: "placeholder_small.png", // Reset to placeholder
+        smallPicture: "placeholder_small.png",
       });
     } catch (error) {
       console.error("Error saving recipe:", error);
@@ -148,7 +148,6 @@ const AddRecipe = () => {
     <div className={styles.formContainer}>
       <h1>Add New Recipe</h1>
       <form onSubmit={handleSubmit}>
-        {/* Recipe form inputs */}
         <div className={styles.formGroup}>
           <input
             className={styles.textarea}

@@ -6,16 +6,16 @@ import menuService from "../../services/menuService";
 import cocktailsData from "../../data/db.json";
 import ButtonComponent from "../../components/ui/ButtonComponent";
 import CocktailComponent from "../../components/ui/CocktailComponent";
-import DeleteConfirmation from "../../components/ui/DeleteConfirmationComponent"; // Import the confirmation dialog
+import DeleteConfirmation from "../../components/ui/DeleteConfirmationComponent"; 
 
 const ViewMenu = () => {
   const { id } = useParams();
 
-  const navigate = useNavigate(); // For navigation after deletion
+  const navigate = useNavigate();
   const [menu, setMenu] = useState(null);
-  const [cocktailDetails, setCocktailDetails] = useState([]); // Store the actual cocktail details
-  const [showConfirmation, setShowConfirmation] = useState(false); // State to manage confirmation dialog
-  const [deletedMessage, setDeletedMessage] = useState(false); // State for deletion message
+  const [cocktailDetails, setCocktailDetails] = useState([]); 
+  const [showConfirmation, setShowConfirmation] = useState(false); 
+  const [deletedMessage, setDeletedMessage] = useState(false); 
 
   useEffect(() => {
     const fetchMenu = async () => {
@@ -30,7 +30,7 @@ const ViewMenu = () => {
                 (cocktail) => cocktail.id === cocktailId
               )
             )
-            .filter(Boolean); // Filters out any undefined cocktails
+            .filter(Boolean); 
           setCocktailDetails(selectedCocktails);
         }
       } catch (error) {
@@ -48,18 +48,18 @@ const ViewMenu = () => {
   }
 
   const deleteHandle = () => {
-    setShowConfirmation(true); // Show confirmation dialog
+    setShowConfirmation(true); 
   };
 
   const confirmDelete = async () => {
     try {
-      await menuService.deleteMenu(id); // Call deleteMenu function
-      setDeletedMessage(true); // Show deletion message
-      setShowConfirmation(false); // Close confirmation dialog
+      await menuService.deleteMenu(id); 
+      setDeletedMessage(true); 
+      setShowConfirmation(false); 
       navigate("/", { state: { status: "Menu was deleted" } });
       setTimeout(() => {
         setDeletedMessage(false);
-      }, 2000); // Remove message after 2 seconds
+      }, 2000); 
     } catch (error) {
       console.error("Error deleting menu:", error);
     }
@@ -88,7 +88,7 @@ const ViewMenu = () => {
 
       <div className={styles.buttonContainer}>
         <ButtonComponent
-          onClick={() => handleDownloadPDF(menu, cocktailDetails)} // Pass menu and cocktailDetails here
+          onClick={() => handleDownloadPDF(menu, cocktailDetails)} 
           category="download"
         >
           PDF
