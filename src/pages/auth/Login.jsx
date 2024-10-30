@@ -51,7 +51,7 @@ const Login = () => {
         <div className={styles.formGroup}>
           <input
             type="text"
-            placeholder="Username"
+            placeholder="user1"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -61,7 +61,7 @@ const Login = () => {
         <div className={styles.formGroup}>
           <input
             type="password"
-            placeholder="Password"
+            placeholder="password1"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
