@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 import recipeService from "../../services/recipeService";
 import ButtonComponent from "../../components/ui/ButtonComponent";
-import RecipeComponent from "../../components/ui/RecipeComponent"; 
-import styles from '../../styles/recipelist.module.css';
+import RecipeComponent from "../../components/ui/RecipeComponent";
+import styles from "../../styles/thisfileplease.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,8 +16,8 @@ const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
   const [filter, setFilter] = useState("");
   const [complexity, setComplexity] = useState("");
-  const [ingredient, setIngredient] = useState(""); 
-  const [searchTerm, setSearchTerm] = useState(""); 
+  const [ingredient, setIngredient] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
 
   const clearFilters = () => {
@@ -63,9 +63,7 @@ const RecipeList = () => {
           cocktail.ingredients.some((ing) =>
             ing.name.toLowerCase().includes(searchTerm.toLowerCase())
           ) ||
-          cocktail.style
-            .toLowerCase()
-            .includes(searchTerm.toLowerCase()) ||
+          cocktail.style.toLowerCase().includes(searchTerm.toLowerCase()) ||
           cocktail.description?.toLowerCase().includes(searchTerm.toLowerCase()) // Optional description
         : true;
 
@@ -85,9 +83,7 @@ const RecipeList = () => {
     });
 
   // Get unique styles, complexities, and ingredients for filter options
-  const stylesOptions = [
-    ...new Set(recipes.map((cocktail) => cocktail.style)),
-  ];
+  const stylesOptions = [...new Set(recipes.map((cocktail) => cocktail.style))];
   const complexityOptions = [
     ...new Set(recipes.map((cocktail) => cocktail.complexityLevel)),
   ];
